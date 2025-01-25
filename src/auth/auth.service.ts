@@ -54,7 +54,7 @@ export class AuthService {
 
   async createSession(userId: number): Promise<string> {
     const token = await this.jwtService.signAsync({ userId });
-    const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
+    const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
     await this.sessionsRepository.save({
       token,

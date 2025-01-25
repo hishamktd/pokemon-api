@@ -1,10 +1,25 @@
-import { Controller, Post, Body, Res } from '@nestjs/common';
-import { Response } from 'express';
+import { Controller, Post, Body, Res, Get, Req } from '@nestjs/common';
+import { Response, Request } from 'express';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
+
+  @Get('validate')
+  async validateSession(@Req() req: Request) {
+    const token = req.headers['authorization']?.split(' ')[1];
+    if (!token) {
+      return { success: false, error: 'No token provided' };
+    }
+
+    const user = await this.authService.verifyToken(token);
+    if (!user) {
+      return { success: false, error: 'Invalid or expired token' };
+    }
+
+    return { success: true, user };
+  }
 
   @Post('login')
   async login(
