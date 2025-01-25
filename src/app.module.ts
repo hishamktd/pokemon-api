@@ -5,6 +5,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppConfig } from './config/config.interface';
+import { User } from './auth/user.entity';
+import { Session } from './auth/session.entity';
 
 @Module({
   imports: [
@@ -18,8 +20,9 @@ import { AppConfig } from './config/config.interface';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        autoLoadEntities: true,
         synchronize: configService.get<boolean>('DB_SYNCHRONIZE'),
+        autoLoadEntities: true,
+        entities: [User, Session],
       }),
     }),
   ],
