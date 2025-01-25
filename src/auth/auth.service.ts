@@ -75,9 +75,9 @@ export class AuthService {
       where: { token },
       relations: ['user'],
     });
-    if (!session) {
+    if (!session || session.expiresAt < new Date()) {
       return null;
     }
-    return session.user;
+    return session?.user;
   }
 }
