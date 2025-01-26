@@ -57,4 +57,7 @@ $ pnpm run test:e2e
 # test coverage
 $ pnpm run test:cov
 ```
+
 API Doc - https://documenter.getpostman.com/view/32013003/2sAYQgg7n1#intro
+
+live pre view - https://pokemon-api-phi-six.vercel.app/
