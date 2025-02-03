@@ -27,14 +27,15 @@ exports.AppModule = AppModule = __decorate([
                 inject: [config_1.ConfigService],
                 useFactory: (configService) => ({
                     type: 'postgres',
-                    host: configService.get('DB_HOST'),
-                    port: configService.get('DB_PORT'),
-                    username: configService.get('DB_USERNAME'),
-                    password: configService.get('DB_PASSWORD'),
-                    database: configService.get('DB_NAME'),
+                    url: configService.get('DATABASE_URL'),
                     synchronize: configService.get('DB_SYNCHRONIZE'),
                     autoLoadEntities: true,
                     entities: [user_entity_1.User, session_entity_1.Session],
+                    extra: {
+                        ssl: {
+                            rejectUnauthorized: false,
+                        },
+                    },
                 }),
             }),
             auth_module_1.AuthModule,

@@ -1,2 +1,2 @@
-declare function bootstrap(): Promise<void>;
+declare function bootstrap(): Promise<import("@nestjs/common").INestApplication<any>>;
 export default bootstrap;
