@@ -1,21 +1,24 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from '../src/app.module';
-import { ExpressAdapter } from '@nestjs/platform-express';
-import express from 'express';
+import { VercelRequest, VercelResponse } from '@vercel/node';
+import { INestApplication } from '@nestjs/common';
 
-const server: express.Express = express();
+let app: INestApplication;
 
-export const createNestApp = async (expressInstance) => {
-  const app = await NestFactory.create(
-    AppModule,
-    new ExpressAdapter(expressInstance),
-  );
-
+async function bootstrap() {
+  if (!app) {
+    app = await NestFactory.create(AppModule);
+    app.enableCors();
+    await app.init();
+  }
   return app;
+}
+
+export default async (req: VercelRequest, res: VercelResponse) => {
+  const app = await bootstrap();
+  const server = app.getHttpAdapter().getInstance() as (
+    req: VercelRequest,
+    res: VercelResponse,
+  ) => void;
+  return server(req, res);
 };
-
-createNestApp(server)
-  .then((app) => app.init())
-  .catch((err) => console.error('Nest broken', err));
-
-export default server;
