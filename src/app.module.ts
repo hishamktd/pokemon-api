@@ -20,6 +20,11 @@ import { AuthModule } from './auth/auth.module';
         synchronize: configService.get<boolean>('DB_SYNCHRONIZE'),
         autoLoadEntities: true,
         entities: [User, Session],
+        extra: {
+          ssl: {
+            rejectUnauthorized: false,
+          },
+        },
       }),
     }),
     AuthModule,
