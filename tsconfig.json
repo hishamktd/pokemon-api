@@ -18,5 +18,7 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "typeRoots": ["node_modules/@types", "src/types"]
-  }
+  },
+  "include": ["src/**/*.ts", "./api/*.ts"],
+  "exclude": ["node_modules"]
 }
