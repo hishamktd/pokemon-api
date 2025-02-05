@@ -10,10 +10,10 @@ import { Session } from './session.entity';
 export class AuthService {
   constructor(
     @InjectRepository(User)
-    private usersRepository: Repository<User>,
+    private readonly usersRepository: Repository<User>,
     @InjectRepository(Session)
-    private sessionsRepository: Repository<Session>,
-    private jwtService: JwtService,
+    private readonly sessionsRepository: Repository<Session>,
+    private readonly jwtService: JwtService,
   ) {}
 
   async login(email: string, password: string) {
