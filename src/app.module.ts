@@ -8,6 +8,7 @@ import { AppConfig } from './config/config.interface';
 import { User } from './auth/user.entity';
 import { Session } from './auth/session.entity';
 import { AuthModule } from './auth/auth.module';
+import { MastersModule } from './masters/masters.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { AuthModule } from './auth/auth.module';
       }),
     }),
     AuthModule,
+    MastersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

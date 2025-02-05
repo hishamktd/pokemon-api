@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
+import { ExpansionsModule } from './expansions/expansions.module';
 
 @Module({
-  imports: [],
+  imports: [ExpansionsModule],
   providers: [],
-  exports: [],
+  exports: [ExpansionsModule],
 })
 export class MastersModule {}
