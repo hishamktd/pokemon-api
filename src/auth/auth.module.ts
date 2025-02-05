@@ -10,7 +10,7 @@ import { Session } from './session.entity';
   imports: [
     TypeOrmModule.forFeature([User, Session]),
     JwtModule.register({
-      secret: process.env.JWT_SECRET_KEY || 'your-secret-key',
+      secret: process.env.JWT_SECRET_KEY ?? 'your-secret-key',
       signOptions: { expiresIn: '24h' },
     }),
   ],
