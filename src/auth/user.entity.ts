@@ -1,11 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, Unique } from 'typeorm';
+import { Entity, Column, Unique } from 'typeorm';
+import { AbstractEntity } from '../common/entities/abstract.entity';
 
 @Entity()
 @Unique(['email'])
-export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class User extends AbstractEntity {
   @Column()
   email: string;
 

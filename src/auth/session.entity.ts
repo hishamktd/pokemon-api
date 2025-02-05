@@ -1,17 +1,9 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  JoinColumn,
-} from 'typeorm';
+import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { User } from './user.entity';
+import { AbstractEntity } from '../common/entities/abstract.entity';
 
 @Entity()
-export class Session {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class Session extends AbstractEntity {
   @Column()
   token: string;
 
