@@ -5,7 +5,8 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { User } from './user.entity';
 import { Session } from './session.entity';
-
+import { UserRepository } from './user.repository';
+import { SessionRepository } from './session.repository';
 @Module({
   imports: [
     TypeOrmModule.forFeature([User, Session]),
@@ -14,7 +15,7 @@ import { Session } from './session.entity';
       signOptions: { expiresIn: '24h' },
     }),
   ],
-  providers: [AuthService],
+  providers: [AuthService, UserRepository, SessionRepository],
   controllers: [AuthController],
 })
 export class AuthModule {}
