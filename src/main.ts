@@ -9,11 +9,7 @@ async function bootstrap() {
     console.log(`Server started on port ${process.env.PORT ?? 3000}`);
   });
 
-  app.enableCors({
-    origin: 'https://pokemon-cards-alpha-five.vercel.app',
-    methods: 'GET, HEAD, POST, PUT, DELETE, PATCH, OPTIONS',
-    credentials: true,
-  });
+  app.enableCors({ origin: '*' });
 
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
 }
