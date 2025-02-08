@@ -4,7 +4,8 @@ import { ExpansionsService } from './expansions.service';
 import { ExpansionsController } from './expansions.controller';
 
 @Module({
-  providers: [ExpansionsRepository, ExpansionsService, ExpansionsController],
+  providers: [ExpansionsRepository, ExpansionsService],
+  controllers: [ExpansionsController],
   exports: [],
 })
 export class ExpansionsModule {}
