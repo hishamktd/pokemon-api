@@ -9,8 +9,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ExpansionsService } from './expansions.service';
-import { PageOptionsDto } from '@/common/dtos/page-opt-dtos';
-import { PageDto } from '@/common/page/page.dto';
+import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
+import { PageDto } from '../../common/page/page.dto';
 import { Expansion } from './expansions.entity';
 import { ApiTags } from '@nestjs/swagger';
 

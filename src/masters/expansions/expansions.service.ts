@@ -4,10 +4,10 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { ExpansionsRepository } from './expansions.repository';
-import { PageOptionsDto } from '@/common/dtos/page-opt-dtos';
+import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
 import { Expansion } from './expansions.entity';
-import { PageMetaDto } from '@/common/page/page-meta.dto';
-import { PageDto } from '@/common/page/page.dto';
+import { PageMetaDto } from '../../common/page/page-meta.dto';
+import { PageDto } from '../../common/page/page.dto';
 
 @Injectable()
 export class ExpansionsService {
