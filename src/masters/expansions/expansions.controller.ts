@@ -15,7 +15,7 @@ import { Expansion } from './expansions.entity';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Master Data - Expansions')
-@Controller('/masters/expansions')
+@Controller('masters/expansions')
 export class ExpansionsController {
   constructor(private readonly expansionsService: ExpansionsService) {}
 
@@ -23,6 +23,8 @@ export class ExpansionsController {
   async findAll(
     @Query() pageOptionsDto: PageOptionsDto,
   ): Promise<PageDto<Expansion>> {
+    console.log('pageOptionsDto', pageOptionsDto);
+
     return this.expansionsService.findAll(pageOptionsDto);
   }
 
