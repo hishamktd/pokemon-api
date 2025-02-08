@@ -2,6 +2,7 @@
 import eslint from '@eslint/js';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
+// @ts-ignore
 import eslintPluginImport from 'eslint-plugin-import';
 import tseslint from 'typescript-eslint';
 
