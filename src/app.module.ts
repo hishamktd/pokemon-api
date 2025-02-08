@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -9,7 +9,6 @@ import { User } from './auth/user.entity';
 import { Session } from './auth/session.entity';
 import { AuthModule } from './auth/auth.module';
 import { MastersModule } from './masters/masters.module';
-import { CorsMiddleware } from '@nest-middlewares/cors';
 import { Expansion } from './masters/expansions/expansions.entity';
 
 @Module({
@@ -41,8 +40,4 @@ import { Expansion } from './masters/expansions/expansions.entity';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(CorsMiddleware).forRoutes('*');
-  }
-}
+export class AppModule {}
