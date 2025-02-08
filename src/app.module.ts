@@ -10,6 +10,7 @@ import { Session } from './auth/session.entity';
 import { AuthModule } from './auth/auth.module';
 import { MastersModule } from './masters/masters.module';
 import { CorsMiddleware } from '@nest-middlewares/cors';
+import { Expansion } from './masters/expansions/expansions.entity';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { CorsMiddleware } from '@nest-middlewares/cors';
         url: configService.get<string>('DATABASE_URL'),
         synchronize: configService.get<boolean>('DB_SYNCHRONIZE'),
         autoLoadEntities: true,
-        entities: [User, Session],
+        entities: [User, Session, Expansion],
         ssl: {
           rejectUnauthorized: false,
         },
