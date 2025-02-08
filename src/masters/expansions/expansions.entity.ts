@@ -1,4 +1,5 @@
 import { Column, Entity } from 'typeorm';
+
 import { AbstractEntity } from '../../common/entities/abstract.entity';
 
 @Entity('expansions')

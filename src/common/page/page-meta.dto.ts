@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+
 import { PageMetaDtoParameters } from '../interfaces/page-meta-dto-params';
 
 export class PageMetaDto {

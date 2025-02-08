@@ -1,15 +1,16 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import configuration from './config/configuration';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppConfig } from './config/config.interface';
-import { User } from './auth/user.entity';
-import { Session } from './auth/session.entity';
 import { AuthModule } from './auth/auth.module';
-import { MastersModule } from './masters/masters.module';
+import { Session } from './auth/session.entity';
+import { User } from './auth/user.entity';
+import { AppConfig } from './config/config.interface';
+import configuration from './config/configuration';
 import { Expansion } from './masters/expansions/expansions.entity';
+import { MastersModule } from './masters/masters.module';
 
 @Module({
   imports: [
