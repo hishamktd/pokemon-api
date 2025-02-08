@@ -23,8 +23,6 @@ export class ExpansionsController {
   async findAll(
     @Query() pageOptionsDto: PageOptionsDto,
   ): Promise<PageDto<Expansion>> {
-    console.log('pageOptionsDto', pageOptionsDto);
-
     return this.expansionsService.findAll(pageOptionsDto);
   }
 
