@@ -46,6 +46,43 @@ export default tseslint.config(
             'internal',
             ['parent', 'sibling', 'index'],
           ],
+          pathGroups: [
+            {
+              pattern: '@nestjs/**',
+              group: 'external',
+              position: 'after',
+            },
+            {
+              pattern: '**/*.module',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '**/*.entity',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '**/*.dto',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '**/*.service',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '**/*.interface',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '**/*.controller',
+              group: 'internal',
+              position: 'before',
+            },
+          ],
           pathGroupsExcludedImportTypes: ['builtin'],
           alphabetize: {
             order: 'asc',

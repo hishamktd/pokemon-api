@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
 import { DataSource, Repository } from 'typeorm';
+
+import { Injectable } from '@nestjs/common';
 
 import { Expansion } from './expansions.entity';
 

@@ -1,6 +1,7 @@
+import * as bcrypt from 'bcryptjs';
+
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import * as bcrypt from 'bcryptjs';
 
 import { SessionRepository } from './session.repository';
 import { User } from './user.entity';
