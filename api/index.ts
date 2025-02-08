@@ -8,7 +8,7 @@ let app: INestApplication;
 async function bootstrap() {
   if (!app) {
     app = await NestFactory.create(AppModule);
-    // app.enableCors();
+    app.enableCors();
 
     await app.init();
 
