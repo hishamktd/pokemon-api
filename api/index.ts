@@ -8,7 +8,12 @@ let app: INestApplication;
 async function bootstrap() {
   if (!app) {
     app = await NestFactory.create(AppModule);
-    app.enableCors();
+
+    app.enableCors({
+      origin: 'https://pokemon-cards-alpha-five.vercel.app',
+      methods: 'GET, HEAD, POST, PUT, DELETE, PATCH, OPTIONS',
+      credentials: true,
+    });
 
     await app.init();
 
