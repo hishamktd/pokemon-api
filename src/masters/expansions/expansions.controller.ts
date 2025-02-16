@@ -14,7 +14,7 @@ import { Expansion } from './expansions.entity';
 import { ExpansionsService } from './expansions.service';
 import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
 import { PageDto } from '../../common/page/page.dto';
-
+import { ExpansionDefault } from './expansions.default';
 @ApiTags('Master Data - Expansions')
 @Controller('masters/expansions')
 export class ExpansionsController {
@@ -30,6 +30,11 @@ export class ExpansionsController {
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Expansion> {
     return this.expansionsService.findOne(+id);
+  }
+
+  @Get('default')
+  async findDefault(): Promise<ExpansionDefault> {
+    return this.expansionsService.findDefault();
   }
 
   @Post()

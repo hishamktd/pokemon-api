@@ -9,6 +9,7 @@ import { ExpansionsRepository } from './expansions.repository';
 import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
 import { PageMetaDto } from '../../common/page/page-meta.dto';
 import { PageDto } from '../../common/page/page.dto';
+import { ExpansionDefault } from './expansions.default';
 
 @Injectable()
 export class ExpansionsService {
@@ -44,6 +45,10 @@ export class ExpansionsService {
       throw new NotFoundException('Expansion not found');
     }
     return expansion;
+  }
+
+  async findDefault(): Promise<ExpansionDefault> {
+    return new ExpansionDefault();
   }
 
   async create(expansion: Expansion): Promise<Expansion> {
