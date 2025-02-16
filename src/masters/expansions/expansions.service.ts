@@ -10,10 +10,14 @@ import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
 import { PageMetaDto } from '../../common/page/page-meta.dto';
 import { PageDto } from '../../common/page/page.dto';
 import { ExpansionDefault } from './expansions.default';
+import { FileUploadService } from '../../common/services/file-upload.service';
 
 @Injectable()
 export class ExpansionsService {
-  constructor(private readonly expansionsRepository: ExpansionsRepository) {}
+  constructor(
+    private readonly expansionsRepository: ExpansionsRepository,
+    private readonly fileUploadService: FileUploadService,
+  ) {}
 
   async findAll(pageOptionsDto: PageOptionsDto): Promise<PageDto<Expansion>> {
     const { skip, size } = pageOptionsDto as { skip: number; size: number };
@@ -52,10 +56,19 @@ export class ExpansionsService {
   }
 
   async create(expansion: Expansion): Promise<Expansion> {
+    const file = expansion.image;
+    const imageUrl = await this.fileUploadService.uploadFile(file);
+    expansion.imageUrl = imageUrl;
     return await this.expansionsRepository.save(expansion);
   }
 
   async update(id: number, expansion: Expansion): Promise<Expansion> {
+    const existingExpansion = await this.findOne(id);
+    const file = expansion.image;
+    const imageUrl = await this.fileUploadService.uploadFile(file, {
+      imageUrl: existingExpansion.imageUrl,
+    });
+    expansion.imageUrl = imageUrl;
     await this.expansionsRepository.update(id, expansion);
     return await this.findOne(id);
   }
