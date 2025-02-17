@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { Session } from './auth/session.entity';
 import { User } from './auth/user.entity';
+import { FileUploadModule } from './common/file-upload/file-upload.module';
 import { AppConfig } from './config/config.interface';
 import configuration from './config/configuration';
 import { Expansion } from './masters/expansions/expansions.entity';
@@ -37,6 +38,7 @@ import { MastersModule } from './masters/masters.module';
     }),
     AuthModule,
     MastersModule,
+    FileUploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],

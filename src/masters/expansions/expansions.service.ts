@@ -10,15 +10,10 @@ import { ExpansionsRepository } from './expansions.repository';
 import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
 import { PageMetaDto } from '../../common/page/page-meta.dto';
 import { PageDto } from '../../common/page/page.dto';
-import { FileUploadService } from '../../common/services/file-upload.service';
-import { MulterFile } from '../../types';
 
 @Injectable()
 export class ExpansionsService {
-  constructor(
-    private readonly expansionsRepository: ExpansionsRepository,
-    private readonly fileUploadService: FileUploadService,
-  ) {}
+  constructor(private readonly expansionsRepository: ExpansionsRepository) {}
 
   async findAll(pageOptionsDto: PageOptionsDto): Promise<PageDto<Expansion>> {
     const { skip, size } = pageOptionsDto as { skip: number; size: number };
@@ -56,27 +51,11 @@ export class ExpansionsService {
     return new ExpansionDefault();
   }
 
-  async create(expansion: Expansion, file: MulterFile): Promise<Expansion> {
-    const imageUrl = await this.fileUploadService.uploadFile(file, {
-      path: 'expansions',
-      name: expansion.name,
-    });
-    expansion.imageUrl = imageUrl;
+  async create(expansion: Expansion): Promise<Expansion> {
     return await this.expansionsRepository.save(expansion);
   }
 
-  async update(
-    id: number,
-    expansion: Expansion,
-    file: MulterFile,
-  ): Promise<Expansion> {
-    const existingExpansion = await this.findOne(id);
-    const imageUrl = await this.fileUploadService.uploadFile(file, {
-      imageUrl: existingExpansion.imageUrl,
-      path: 'expansions',
-      name: existingExpansion.name,
-    });
-    expansion.imageUrl = imageUrl;
+  async update(id: number, expansion: Expansion): Promise<Expansion> {
     await this.expansionsRepository.update(id, expansion);
     return await this.findOne(id);
   }
