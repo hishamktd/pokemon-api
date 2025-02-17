@@ -1,4 +1,4 @@
-import { ExpansionDto } from "./expansions.dto";
+import { ExpansionDto } from './expansions.dto';
 
 export class ExpansionDefault implements ExpansionDto {
   id = 0;

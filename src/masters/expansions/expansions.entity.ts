@@ -7,9 +7,6 @@ export class Expansion extends AbstractEntity {
   @Column()
   name: string;
 
-  @Column({ type: 'jsonb', nullable: true })
-  image: File | null;
-
   @Column()
   imageUrl: string | null;
 
