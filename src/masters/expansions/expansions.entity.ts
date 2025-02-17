@@ -7,8 +7,8 @@ export class Expansion extends AbstractEntity {
   @Column()
   name: string;
 
-  @Column()
-  imageUrl: string | null;
+  @Column({ type: 'text', nullable: true })
+  imageUrl?: string;
 
   @Column()
   totalCards: number;

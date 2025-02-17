@@ -6,7 +6,7 @@ import { Injectable } from '@nestjs/common';
 import { MulterFile } from '../../types';
 
 type FileOptions = {
-  imageUrl?: string | null;
+  imageUrl?: string | undefined;
   path?: string;
   name?: string;
 };
@@ -16,11 +16,11 @@ export class FileUploadService {
   async uploadFile(
     file: MulterFile,
     options?: FileOptions,
-  ): Promise<string | null> {
-    const { imageUrl = null, path = '', name = '' } = options || {};
+  ): Promise<string | undefined> {
+    const { imageUrl = undefined, path = '', name = '' } = options || {};
 
     if (!file) {
-      return imageUrl || null;
+      return imageUrl;
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
