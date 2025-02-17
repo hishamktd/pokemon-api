@@ -17,10 +17,7 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
-    "typeRoots": ["node_modules/@types", "src/types"],
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": ["src/**/*.ts", "./api/*.ts", "dist/api/index.js"],
   "exclude": ["node_modules"]
