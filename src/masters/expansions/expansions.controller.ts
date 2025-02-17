@@ -13,7 +13,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { ExpansionDefault } from './expansions.default';
 import { Expansion } from './expansions.entity';
 import { ExpansionsService } from './expansions.service';
-import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
+import { PageOptionsDto } from '../../common/dtos/page-opt.dtos';
 import { PageDto } from '../../common/page/page.dto';
 
 @ApiTags('Master Data - Expansions')

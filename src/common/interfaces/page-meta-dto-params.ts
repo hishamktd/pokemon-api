@@ -1,4 +1,4 @@
-import { PageOptionsDto } from '../dtos/page-opt-dtos';
+import { PageOptionsDto } from '../dtos/page-opt.dtos';
 
 export interface PageMetaDtoParameters {
   pageOptionsDto: PageOptionsDto;

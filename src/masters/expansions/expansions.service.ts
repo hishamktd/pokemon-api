@@ -4,10 +4,12 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
+import { PageOptions } from 'src/common/interfaces/page-opt.interface';
+
 import { ExpansionDefault } from './expansions.default';
 import { Expansion } from './expansions.entity';
 import { ExpansionsRepository } from './expansions.repository';
-import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
+import { PageOptionsDto } from '../../common/dtos/page-opt.dtos';
 import { PageMetaDto } from '../../common/page/page-meta.dto';
 import { PageDto } from '../../common/page/page.dto';
 
@@ -16,7 +18,7 @@ export class ExpansionsService {
   constructor(private readonly expansionsRepository: ExpansionsRepository) {}
 
   async findAll(pageOptionsDto: PageOptionsDto): Promise<PageDto<Expansion>> {
-    const { skip, size } = pageOptionsDto as { skip: number; size: number };
+    const { skip, size, order } = pageOptionsDto as PageOptions;
 
     if (size < 1) {
       throw new BadRequestException('Size must be greater than 0');
@@ -29,6 +31,9 @@ export class ExpansionsService {
     const [entities, itemCount] = await this.expansionsRepository.findAndCount({
       skip,
       take: size,
+      order: {
+        updatedAt: order,
+      },
     });
 
     const pageMetaDto = new PageMetaDto({ itemCount, pageOptionsDto });

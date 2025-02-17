@@ -8,12 +8,12 @@ import { Order } from '../constants/page-order';
 export class PageOptionsDto {
   @ApiPropertyOptional({
     enum: Order,
-    default: Order.ASC,
+    default: Order.DESC,
     type: () => Order,
   })
   @IsEnum(Order)
   @IsOptional()
-  readonly order: Order = Order.ASC;
+  readonly order: Order = Order.DESC;
 
   @ApiPropertyOptional({
     minimum: 1,
