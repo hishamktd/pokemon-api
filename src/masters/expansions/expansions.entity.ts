@@ -13,6 +13,6 @@ export class Expansion extends AbstractEntity {
   @Column()
   totalCards: number;
 
-  @Column()
+  @Column({ type: 'text', nullable: true })
   points: string;
 }
