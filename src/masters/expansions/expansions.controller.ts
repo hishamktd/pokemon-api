@@ -7,15 +7,18 @@ import {
   Body,
   Put,
   Delete,
+  UseInterceptors,
+  UploadedFile,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags } from '@nestjs/swagger';
 
+import { ExpansionDefault } from './expansions.default';
 import { Expansion } from './expansions.entity';
 import { ExpansionsService } from './expansions.service';
 import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
 import { PageDto } from '../../common/page/page.dto';
-import { ExpansionDefault } from './expansions.default';
-
+import { MulterFile } from '../../types';
 @ApiTags('Master Data - Expansions')
 @Controller('masters/expansions')
 export class ExpansionsController {
@@ -29,7 +32,7 @@ export class ExpansionsController {
   }
 
   @Get('default')
-  async findDefault(): Promise<ExpansionDefault> {
+  findDefault(): ExpansionDefault {
     return this.expansionsService.findDefault();
   }
 
@@ -39,16 +42,19 @@ export class ExpansionsController {
   }
 
   @Post()
-  async create(@Body() expansion: Expansion): Promise<Expansion> {
-    return this.expansionsService.create(expansion);
+  @UseInterceptors(FileInterceptor('image'))
+  async create(@Body() expansion: Expansion, @UploadedFile() file: MulterFile) {
+    return this.expansionsService.create(expansion, file);
   }
 
   @Put(':id')
+  @UseInterceptors(FileInterceptor('image'))
   async update(
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() expansion: Expansion,
-  ): Promise<Expansion> {
-    return this.expansionsService.update(+id, expansion);
+    @UploadedFile() file: MulterFile,
+  ) {
+    return this.expansionsService.update(id, expansion, file);
   }
 
   @Delete(':id')

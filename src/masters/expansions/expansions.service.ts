@@ -11,6 +11,7 @@ import { PageOptionsDto } from '../../common/dtos/page-opt-dtos';
 import { PageMetaDto } from '../../common/page/page-meta.dto';
 import { PageDto } from '../../common/page/page.dto';
 import { FileUploadService } from '../../common/services/file-upload.service';
+import { MulterFile } from '../../types';
 
 @Injectable()
 export class ExpansionsService {
@@ -55,18 +56,25 @@ export class ExpansionsService {
     return new ExpansionDefault();
   }
 
-  async create(expansion: Expansion): Promise<Expansion> {
-    const file = expansion.image;
-    const imageUrl = await this.fileUploadService.uploadFile(file);
+  async create(expansion: Expansion, file: MulterFile): Promise<Expansion> {
+    const imageUrl = await this.fileUploadService.uploadFile(file, {
+      path: 'expansions',
+      name: expansion.name,
+    });
     expansion.imageUrl = imageUrl;
     return await this.expansionsRepository.save(expansion);
   }
 
-  async update(id: number, expansion: Expansion): Promise<Expansion> {
+  async update(
+    id: number,
+    expansion: Expansion,
+    file: MulterFile,
+  ): Promise<Expansion> {
     const existingExpansion = await this.findOne(id);
-    const file = expansion.image;
     const imageUrl = await this.fileUploadService.uploadFile(file, {
       imageUrl: existingExpansion.imageUrl,
+      path: 'expansions',
+      name: existingExpansion.name,
     });
     expansion.imageUrl = imageUrl;
     await this.expansionsRepository.update(id, expansion);

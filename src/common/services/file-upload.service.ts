@@ -1,5 +1,9 @@
-import { Injectable } from '@nestjs/common';
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { put } from '@vercel/blob';
+
+import { Injectable } from '@nestjs/common';
+
+import { MulterFile } from '../../types';
 
 type FileOptions = {
   imageUrl?: string | null;
@@ -10,7 +14,7 @@ type FileOptions = {
 @Injectable()
 export class FileUploadService {
   async uploadFile(
-    file: File | null,
+    file: MulterFile,
     options?: FileOptions,
   ): Promise<string | null> {
     const { imageUrl = null, path = '', name = '' } = options || {};
@@ -19,10 +23,12 @@ export class FileUploadService {
       return imageUrl || null;
     }
 
-    const blob = await put(`${path}/${name}`, file, {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    const blob = await put(`${path}/${name}`, file.buffer, {
       access: 'public',
       addRandomSuffix: true,
-      contentType: file.type,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      contentType: file.mimetype,
     });
 
     return blob.url;
