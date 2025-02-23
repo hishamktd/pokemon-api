@@ -11,13 +11,24 @@ export class AuthMiddleware implements NestMiddleware {
   async use(req: Request, res: Response, next: NextFunction) {
     const token = req.headers['authorization']?.split(' ')[1];
 
-    if (token) {
-      const user = await this.authService.verifyToken(token);
-      if (user) {
-        req.user = user;
-      }
+    if (!token) {
+      return res
+        .status(401)
+        .json({ message: 'Unauthorized: No token provided' });
     }
 
-    next();
+    try {
+      const user = await this.authService.verifyToken(token);
+      if (!user) {
+        return res.status(401).json({ message: 'Unauthorized: Invalid token' });
+      }
+      req.user = user;
+      next();
+    } catch (error: unknown) {
+      console.error(error);
+      return res
+        .status(401)
+        .json({ message: 'Unauthorized: Token verification failed' });
+    }
   }
 }

@@ -1,12 +1,14 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuthMiddleware } from './auth/auth.middleware';
 import { AuthModule } from './auth/auth.module';
 import { Session } from './auth/session.entity';
 import { User } from './auth/user.entity';
+import nonProtectedRoutes from './common/constants/non-protected-routes';
 import { FileUploadModule } from './common/file-upload/file-upload.module';
 import { AppConfig } from './config/config.interface';
 import configuration from './config/configuration';
@@ -42,6 +44,13 @@ import { MastersModule } from './masters/masters.module';
     FileUploadModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AuthMiddleware],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(AuthMiddleware)
+      .exclude(...nonProtectedRoutes)
+      .forRoutes('*');
+  }
+}
