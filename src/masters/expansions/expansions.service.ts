@@ -7,6 +7,7 @@ import {
 import { PageOptions } from 'src/common/interfaces/page-opt.interface';
 
 import { ExpansionDefault } from './expansions.default';
+import { ExpansionDto } from './expansions.dto';
 import { Expansion } from './expansions.entity';
 import { ExpansionsRepository } from './expansions.entity';
 import { PageOptionsDto } from '../../common/dtos/page-opt.dtos';
@@ -56,8 +57,12 @@ export class ExpansionsService {
     return new ExpansionDefault();
   }
 
-  async create(expansion: Expansion): Promise<Expansion> {
-    return await this.expansionsRepository.save(expansion);
+  async create(expansion: ExpansionDto): Promise<Expansion> {
+    try {
+      return await this.expansionsRepository.save(expansion);
+    } catch (error) {
+      throw new BadRequestException(`Failed to create expansion: ${error}`);
+    }
   }
 
   async update(id: number, expansion: Expansion): Promise<Expansion> {

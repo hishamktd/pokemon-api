@@ -2,9 +2,7 @@ import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 import { ApiProperty } from '@nestjs/swagger';
 
-import { AbstractDto } from '../../common/dtos/abstract.dto';
-
-export class ExpansionDto extends AbstractDto {
+export class ExpansionDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()

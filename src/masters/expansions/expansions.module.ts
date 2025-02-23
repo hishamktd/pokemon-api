@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 
 import { ExpansionsController } from './expansions.controller';
-import { ExpansionsRepository } from './expansions.repository';
+import { ExpansionsRepository } from './expansions.entity';
 import { ExpansionsService } from './expansions.service';
 
 @Module({
