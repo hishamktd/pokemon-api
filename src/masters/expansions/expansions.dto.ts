@@ -10,7 +10,7 @@ export class ExpansionDto {
 
   @ApiProperty()
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   imageUrl: string;
 
   @ApiProperty()
