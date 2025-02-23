@@ -1,5 +1,13 @@
-import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+import { plainToInstance } from 'class-transformer';
+import { validateSync } from 'class-validator';
 
+import {
+  BadRequestException,
+  createParamDecorator,
+  ExecutionContext,
+} from '@nestjs/common';
+
+import { PaginationDto } from './pagination.dto';
 import { PaginationParams } from './pagination.interface';
 
 export const Pagination = createParamDecorator(
@@ -7,14 +15,19 @@ export const Pagination = createParamDecorator(
     const request: { query: { [key: string]: string } } = ctx
       .switchToHttp()
       .getRequest();
-    const query = request?.query;
+    const query = request?.query || {};
 
-    return {
-      page: Math.max(parseInt(query.page, 10) || 1, 1),
-      size: Math.max(parseInt(query.limit, 10) || 10, 1),
-      query: query.query || '',
-      sortBy: query.sortBy || 'createdAt',
-      order: query.order?.toUpperCase() === 'DESC' ? 'DESC' : 'ASC',
-    };
+    const paginationParams = plainToInstance(PaginationDto, query, {
+      enableImplicitConversion: true,
+    });
+
+    const errors = validateSync(paginationParams);
+    if (errors.length > 0) {
+      throw new BadRequestException(
+        `Invalid pagination parameters: ${errors.map((e) => e.toString()).join(', ')}`,
+      );
+    }
+
+    return paginationParams;
   },
 );

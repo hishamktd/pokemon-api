@@ -15,3 +15,7 @@ export interface PageMetaDtoParameters {
   pageOptionsDto: PageOptionsDto;
   itemCount: number;
 }
+
+export interface TransformValue {
+  value: string;
+}
