@@ -15,21 +15,13 @@ import {
 import { TransformValue } from './pagination.interface';
 
 export class PaginationDto {
-  @IsInt({
-    message: 'Page must be an integer',
-  })
-  @Min(1, {
-    message: 'Page must be greater than or equal to 1',
-  })
+  @IsInt({ message: 'Page must be an integer' })
+  @Min(1, { message: 'Page must be greater than or equal to 1' })
   @Transform(({ value }: TransformValue) => parseInt(value, 10) || DEFAULT_PAGE)
   page: number = DEFAULT_PAGE;
 
-  @IsInt({
-    message: 'Size must be an integer',
-  })
-  @Min(1, {
-    message: 'Size must be greater than or equal to 1',
-  })
+  @IsInt({ message: 'Size must be an integer' })
+  @Min(1, { message: 'Size must be greater than or equal to 1' })
   @Max(MAX_PAGE_SIZE, {
     message: `Size must be less than or equal to ${MAX_PAGE_SIZE}`,
   })
@@ -37,21 +29,15 @@ export class PaginationDto {
   size: number = DEFAULT_SIZE;
 
   @IsOptional()
-  @IsString({
-    message: 'Query must be a string',
-  })
+  @IsString({ message: 'Query must be a string' })
   query?: string = '';
 
   @IsOptional()
-  @IsString({
-    message: 'SortBy must be a string',
-  })
+  @IsString({ message: 'SortBy must be a string' })
   sortBy?: string = DEFAULT_SORT_FIELD;
 
   @IsOptional()
-  @IsString({
-    message: 'Order must be a string',
-  })
+  @IsString({ message: 'Order must be a string' })
   order?: 'ASC' | 'DESC' = DEFAULT_SORT_ORDER;
 }
 
