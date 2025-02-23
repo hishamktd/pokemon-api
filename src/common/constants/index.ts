@@ -1,6 +1,6 @@
 export const DEFAULT_SORT_FIELD = 'updatedAt';
 
-export const DEFAULT_SORT_ORDER = 'ASC';
+export const DEFAULT_SORT_ORDER = 'DESC';
 
 export const DEFAULT_PAGE = 1;
 

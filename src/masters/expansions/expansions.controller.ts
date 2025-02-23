@@ -56,8 +56,11 @@ export class ExpansionsController {
   }
 
   @Put(':id')
-  async update(@Param('id') id: number, @Body() expansion: Expansion) {
-    return this.expansionsService.update(id, expansion);
+  async update(
+    @Param('id') id: number,
+    @Body() expansionDto: ExpansionDto,
+  ): Promise<Expansion> {
+    return this.expansionsService.update(id, expansionDto);
   }
 
   @Delete(':id')

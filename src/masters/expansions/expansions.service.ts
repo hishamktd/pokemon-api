@@ -44,7 +44,7 @@ export class ExpansionsService {
     }
   }
 
-  async update(id: number, expansion: Expansion): Promise<Expansion> {
+  async update(id: number, expansion: ExpansionDto): Promise<Expansion> {
     await this.expansionsRepo.update(id, expansion);
     return await this.findOne(id);
   }
