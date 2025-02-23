@@ -8,7 +8,7 @@ import { PageOptions } from 'src/common/interfaces/page-opt.interface';
 
 import { ExpansionDefault } from './expansions.default';
 import { Expansion } from './expansions.entity';
-import { ExpansionsRepository } from './expansions.repository';
+import { ExpansionsRepository } from './expansions.entity';
 import { PageOptionsDto } from '../../common/dtos/page-opt.dtos';
 import { PageMetaDto } from '../../common/page/page-meta.dto';
 import { PageDto } from '../../common/page/page.dto';
