@@ -1,3 +1,3 @@
-const nonProtectedRoutes: string[] = ['auth/*'];
+const nonProtectedRoutes: string[] = ['auth/*path'];
 
 export default nonProtectedRoutes;
