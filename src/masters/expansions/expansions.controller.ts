@@ -5,7 +5,6 @@ import {
   Controller,
   Get,
   Param,
-  Query,
   Post,
   Body,
   Put,
@@ -18,8 +17,9 @@ import { ExpansionDefault } from './expansions.default';
 import { ExpansionDto } from './expansions.dto';
 import { Expansion } from './expansions.entity';
 import { ExpansionsService } from './expansions.service';
-import { PageOptionsDto } from '../../common/dtos/page-opt.dtos';
-import { PageDto } from '../../common/page/page.dto';
+import { Pagination } from '../../common/pagination/pagination.decorator';
+import { PaginationResDto } from '../../common/pagination/pagination.dto';
+import { PaginationParams } from '../../common/pagination/pagination.interface';
 
 @ApiTags('Master Data - Expansions')
 @Controller('masters/expansions')
@@ -27,10 +27,10 @@ export class ExpansionsController {
   constructor(private readonly expansionsService: ExpansionsService) {}
 
   @Get()
-  async findAll(
-    @Query() pageOptionsDto: PageOptionsDto,
-  ): Promise<PageDto<Expansion>> {
-    return this.expansionsService.findAll(pageOptionsDto);
+  async findPaginated(
+    @Pagination() pagination: PaginationParams,
+  ): Promise<PaginationResDto<Expansion>> {
+    return this.expansionsService.findPaginated(pagination);
   }
 
   @Get('default')

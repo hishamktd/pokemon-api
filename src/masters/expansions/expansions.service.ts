@@ -4,46 +4,25 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import { PageOptions } from 'src/common/interfaces/page-opt.interface';
-
 import { ExpansionDefault } from './expansions.default';
 import { ExpansionDto } from './expansions.dto';
 import { Expansion } from './expansions.entity';
-import { ExpansionsRepository } from './expansions.entity';
-import { PageOptionsDto } from '../../common/dtos/page-opt.dtos';
-import { PageMetaDto } from '../../common/page/page-meta.dto';
-import { PageDto } from '../../common/page/page.dto';
+import { ExpansionsRepository } from './expansions.repository';
+import { PaginationResDto } from '../../common/pagination/pagination.dto';
+import { PaginationParams } from '../../common/pagination/pagination.interface';
 
 @Injectable()
 export class ExpansionsService {
-  constructor(private readonly expansionsRepository: ExpansionsRepository) {}
+  constructor(private readonly expansionsRepo: ExpansionsRepository) {}
 
-  async findAll(pageOptionsDto: PageOptionsDto): Promise<PageDto<Expansion>> {
-    const { skip, size, order } = pageOptionsDto as PageOptions;
-
-    if (size < 1) {
-      throw new BadRequestException('Size must be greater than 0');
-    }
-
-    if (size > 50) {
-      throw new BadRequestException('Size must be less than 50');
-    }
-
-    const [entities, itemCount] = await this.expansionsRepository.findAndCount({
-      skip,
-      take: size,
-      order: {
-        updatedAt: order,
-      },
-    });
-
-    const pageMetaDto = new PageMetaDto({ itemCount, pageOptionsDto });
-
-    return new PageDto(entities, pageMetaDto);
+  async findPaginated(
+    pagination: PaginationParams,
+  ): Promise<PaginationResDto<Expansion>> {
+    return this.expansionsRepo.findPaginated(pagination);
   }
 
   async findOne(id: number): Promise<Expansion> {
-    const expansion = await this.expansionsRepository.findOne({
+    const expansion = await this.expansionsRepo.findOne({
       where: { id },
     });
 
@@ -59,18 +38,18 @@ export class ExpansionsService {
 
   async create(expansion: ExpansionDto): Promise<Expansion> {
     try {
-      return await this.expansionsRepository.save(expansion);
+      return await this.expansionsRepo.save(expansion);
     } catch (error) {
       throw new BadRequestException(`Failed to create expansion: ${error}`);
     }
   }
 
   async update(id: number, expansion: Expansion): Promise<Expansion> {
-    await this.expansionsRepository.update(id, expansion);
+    await this.expansionsRepo.update(id, expansion);
     return await this.findOne(id);
   }
 
   async delete(id: number): Promise<void> {
-    await this.expansionsRepository.delete(id);
+    await this.expansionsRepo.delete(id);
   }
 }

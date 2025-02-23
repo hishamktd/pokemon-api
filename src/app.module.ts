@@ -10,7 +10,6 @@ import { User } from './auth/user.entity';
 import { FileUploadModule } from './common/file-upload/file-upload.module';
 import { AppConfig } from './config/config.interface';
 import configuration from './config/configuration';
-import { Expansion } from './masters/expansions/expansions.entity';
 import { MastersModule } from './masters/masters.module';
 
 @Module({
@@ -24,7 +23,7 @@ import { MastersModule } from './masters/masters.module';
         synchronize:
           configService.get<string>('DB_SYNCHRONIZE') === 'true' ? true : false,
         autoLoadEntities: true,
-        entities: [User, Session, Expansion],
+        entities: [User, Session],
         ssl:
           configService.get<string>('DB_SSL') === 'true'
             ? { rejectUnauthorized: false }

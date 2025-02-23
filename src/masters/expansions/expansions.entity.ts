@@ -1,6 +1,4 @@
-import { Column, DataSource, Entity, Repository } from 'typeorm';
-
-import { Injectable } from '@nestjs/common';
+import { Column, Entity } from 'typeorm';
 
 import { AbstractEntity } from '../../common/entities/abstract.entity';
 
@@ -17,11 +15,4 @@ export class Expansion extends AbstractEntity {
 
   @Column({ type: 'text', nullable: true })
   points: string;
-}
-
-@Injectable()
-export class ExpansionsRepository extends Repository<Expansion> {
-  constructor(dataSource: DataSource) {
-    super(Expansion, dataSource.createEntityManager());
-  }
 }
