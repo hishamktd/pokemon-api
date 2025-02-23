@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/hishamktd/pokemon-api/compare/v0.0.5...v0.0.6) (2025-02-23)
+
+
+### Features
+
+* add new expansion data for PROMO-A, GENITIC APEX, MYTHICAL ISLAND, and SPACE-TIME SMACKDOWN ([667d655](https://github.com/hishamktd/pokemon-api/commit/667d655827bb080f9b0623a0dc75f690e75c17a3))
+
+
+### Bug Fixes
+
+* change default sort order to DESC and update expansion update method to use ExpansionDto ([f2bc986](https://github.com/hishamktd/pokemon-api/commit/f2bc9869edf14dbe1e6533bb4d4d7a63172ddeff))
+* set default values for sortBy and order in PaginationDto ([389b427](https://github.com/hishamktd/pokemon-api/commit/389b427bffa54f9fad3f28726d1f695a26a55c39))
+
 ### [0.0.5](https://github.com/hishamktd/pokemon-api/compare/v0.0.4...v0.0.5) (2025-02-23)
 
 
