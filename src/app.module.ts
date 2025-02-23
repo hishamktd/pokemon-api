@@ -21,12 +21,14 @@ import { MastersModule } from './masters/masters.module';
       useFactory: (configService: ConfigService<AppConfig>) => ({
         type: 'postgres',
         url: configService.get<string>('DATABASE_URL'),
-        synchronize: configService.get<boolean>('DB_SYNCHRONIZE'),
+        synchronize:
+          configService.get<string>('DB_SYNCHRONIZE') === 'true' ? true : false,
         autoLoadEntities: true,
         entities: [User, Session, Expansion],
-        ssl: {
-          rejectUnauthorized: false,
-        },
+        ssl:
+          configService.get<string>('DB_SSL') === 'true'
+            ? { rejectUnauthorized: false }
+            : false,
         extra: {
           max: 5,
           connectionTimeoutMillis: 5000,
