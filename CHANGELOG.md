@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/hishamktd/pokemon-api/compare/v0.0.4...v0.0.5) (2025-02-23)
+
+
+### Bug Fixes
+
+* update non-protected routes to use wildcard path matching ([500c29c](https://github.com/hishamktd/pokemon-api/commit/500c29c5ffffafb5d60f1f48f4669f18532adbca))
+
 ### [0.0.4](https://github.com/hishamktd/pokemon-api/compare/v0.0.3...v0.0.4) (2025-02-23)
 
 
