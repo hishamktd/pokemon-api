@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/hishamktd/pokemon-api/compare/v0.0.6...v0.0.7) (2025-02-23)
+
+
+### Bug Fixes
+
+* change imageUrl property to be optional in ExpansionDto ([6318dbd](https://github.com/hishamktd/pokemon-api/commit/6318dbd58c0970ea96567fb70696ace32d15ca55))
+
 ### [0.0.6](https://github.com/hishamktd/pokemon-api/compare/v0.0.5...v0.0.6) (2025-02-23)
 
 
