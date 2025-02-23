@@ -34,10 +34,12 @@ export class PaginationDto {
 
   @IsOptional()
   @IsString({ message: 'SortBy must be a string' })
+  @Transform(({ value }: TransformValue) => value || DEFAULT_SORT_FIELD)
   sortBy?: string = DEFAULT_SORT_FIELD;
 
   @IsOptional()
   @IsString({ message: 'Order must be a string' })
+  @Transform(({ value }: TransformValue) => value || DEFAULT_SORT_ORDER)
   order?: 'ASC' | 'DESC' = DEFAULT_SORT_ORDER;
 }
 
