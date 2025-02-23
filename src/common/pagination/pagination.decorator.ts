@@ -24,8 +24,12 @@ export const Pagination = createParamDecorator(
     const errors = validateSync(paginationParams);
 
     if (errors.length > 0) {
+      const errorMessages = errors
+        .map((err) => Object.values(err.constraints || {}).join(', '))
+        .join('; ');
+
       throw new BadRequestException(
-        `Invalid pagination parameters: ${errors.map((e) => e.toString()).join(', ')}`,
+        `Invalid pagination parameters: ${errorMessages}`,
       );
     }
 
