@@ -72,7 +72,6 @@
 
   ```
   {
-    id: number;
     name: string;
     totalCards: number;
     points?: string;
@@ -96,11 +95,16 @@
 
 ### 4. PUT
 
+- Params
+
+  ```
+  id: number;
+  ```
+
 - Request
 
   ```
   {
-    id: number;
     name: string;
     totalCards: number;
     points?: string;
