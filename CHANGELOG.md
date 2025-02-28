@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/hishamktd/pokemon-api/compare/v0.0.9...v0.0.10) (2025-02-28)
+
+
+### Features
+
+* add new expansion data CSV for game updates ([9976ee7](https://github.com/hishamktd/pokemon-api/commit/9976ee7d7fe345099d8530b172de93c79e28c073))
+
 ### [0.0.9](https://github.com/hishamktd/pokemon-api/compare/v0.0.8...v0.0.9) (2025-02-28)
 
 
