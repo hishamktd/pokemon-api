@@ -50,4 +50,8 @@ export class TypesService {
       throw new BadRequestException(`Failed to update expansion: ${error}`);
     }
   }
+
+  async delete(id: number): Promise<void> {
+    await this.typesRepo.delete(id);
+  }
 }
