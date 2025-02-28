@@ -45,11 +45,19 @@ export class ExpansionsService {
   }
 
   async update(id: number, expansion: ExpansionDto): Promise<Expansion> {
-    await this.expansionsRepo.update(id, expansion);
-    return await this.findOne(id);
+    try {
+      await this.expansionsRepo.update(id, expansion);
+      return await this.findOne(id);
+    } catch (error) {
+      throw new BadRequestException(`Failed to update expansion: ${error}`);
+    }
   }
 
   async delete(id: number): Promise<void> {
-    await this.expansionsRepo.delete(id);
+    try {
+      await this.expansionsRepo.delete(id);
+    } catch (error) {
+      throw new BadRequestException(`Failed to delete expansion: ${error}`);
+    }
   }
 }
