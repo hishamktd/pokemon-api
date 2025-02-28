@@ -9,6 +9,7 @@ import {
   Get,
   Param,
   Post,
+  Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
@@ -53,7 +54,7 @@ export class TypesController {
     return this.typesService.create(type);
   }
 
-  @Post(':id')
+  @Put(':id')
   async update(@Param('id') id: number, @Body() type: TypesDto) {
     const instance = plainToInstance(TypesDto, type);
     const errors = await validate(instance);
