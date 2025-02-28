@@ -52,6 +52,10 @@ export class TypesService {
   }
 
   async delete(id: number): Promise<void> {
-    await this.typesRepo.delete(id);
+    try {
+      await this.typesRepo.delete(id);
+    } catch (error) {
+      throw new BadRequestException(`Failed to delete type: ${error}`);
+    }
   }
 }
