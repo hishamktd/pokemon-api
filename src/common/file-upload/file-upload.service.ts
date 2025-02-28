@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { put } from '@vercel/blob';
 
 import { Injectable } from '@nestjs/common';
@@ -19,11 +18,9 @@ export class FileUploadService {
       throw new Error('File is required');
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     const blob = await put(`${path}/${name}`, file.buffer, {
       access: 'public',
       addRandomSuffix: true,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       contentType: file.mimetype,
     });
 
