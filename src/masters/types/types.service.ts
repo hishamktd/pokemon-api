@@ -1,5 +1,11 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 
+import { TypesDefault } from './types.default';
+import { TypesDto } from './types.dto';
 import { TypesEntity } from './types.entity';
 import { TypesRepository } from './types.repository';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
@@ -22,5 +28,26 @@ export class TypesService {
       throw new NotFoundException('Type not found');
     }
     return type;
+  }
+
+  findDefault(): TypesEntity {
+    return new TypesDefault();
+  }
+
+  async create(type: TypesDto): Promise<TypesEntity> {
+    try {
+      return await this.typesRepo.save(type);
+    } catch (error) {
+      throw new BadRequestException(`Failed to create expansion: ${error}`);
+    }
+  }
+
+  async update(id: number, type: TypesDto): Promise<TypesEntity> {
+    try {
+      await this.typesRepo.update(id, type);
+      return this.findOne(id);
+    } catch (error) {
+      throw new BadRequestException(`Failed to update expansion: ${error}`);
+    }
   }
 }
