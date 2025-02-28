@@ -24,21 +24,23 @@
 
   ```
   {
-     data: [{
-         id: number;
-         name: string;
-         totalCards: number;
-         points?: string;
-         imageUrl?: string;
-     }],
-     meta: {
-         page: number,
-         size: number,
-         itemCount: number,
-         pageCount: number,
-         hasPreviousPage: Boolean,
-         hasNextPage: Boolean
-     }
+    data: [{
+      id: number;
+      name: string;
+      totalCards: number;
+      points?: string;
+      imageUrl?: string;
+      createdAt: string;
+      updatedAt: string;
+    }],
+    meta: {
+      page: number,
+      size: number,
+      itemCount: number,
+      pageCount: number,
+      hasPreviousPage: Boolean,
+      hasNextPage: Boolean
+    }
   }
   ```
 
@@ -59,6 +61,8 @@
     totalCards: number;
     points?: string;
     imageUrl?: string;
+    createdAt: string;
+    updatedAt: string;
   }
   ```
 
@@ -85,6 +89,8 @@
     totalCards: number;
     points?: string;
     imageUrl?: string;
+    createdAt: string;
+    updatedAt: string;
   }
   ```
 
@@ -111,6 +117,8 @@
     totalCards: number;
     points?: string;
     imageUrl?: string;
+    createdAt: string;
+    updatedAt: string;
   }
   ```
 
