@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/hishamktd/pokemon-api/compare/v0.0.12...v0.0.13) (2025-03-01)
+
+
+### Features
+
+* add initial Pokémon module files ([9807dbe](https://github.com/hishamktd/pokemon-api/commit/9807dbe48eb57fe887ed7fdea54b310647c7bf33))
+* add initial Pokémon types data CSV file ([a4983e9](https://github.com/hishamktd/pokemon-api/commit/a4983e9a63503fd3748869d272a7af42e600fecb))
+* add PokemonDto class with validation and Swagger documentation ([7a8914c](https://github.com/hishamktd/pokemon-api/commit/7a8914c336adde7dddf08b240d99459e02a610ed))
+
 ### [0.0.12](https://github.com/hishamktd/pokemon-api/compare/v0.0.11...v0.0.12) (2025-03-01)
 
 
