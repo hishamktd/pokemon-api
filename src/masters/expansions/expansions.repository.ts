@@ -5,10 +5,10 @@ import { Injectable } from '@nestjs/common';
 import { allowedSortFields } from './expansions.constants';
 import { Expansion } from './expansions.entity';
 import { ExpansionsGetAllRes } from './expansions.interface';
-import { DEFAULT_SORT_FIELD } from '../../common/constants';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
 import { paginate } from '../../common/pagination/pagination.helper';
 import { PaginationParams } from '../../common/pagination/pagination.interface';
+import { getSortField } from '../../common/utils/get-sort-field';
 
 @Injectable()
 export class ExpansionsRepository extends Repository<Expansion> {
@@ -38,10 +38,7 @@ export class ExpansionsRepository extends Repository<Expansion> {
       );
     }
 
-    if (!allowedSortFields.includes(sortBy || DEFAULT_SORT_FIELD)) {
-      sortBy = DEFAULT_SORT_FIELD;
-    }
-
+    sortBy = getSortField(sortBy, allowedSortFields);
     queryBuilder.orderBy(`expansion.${sortBy}`, order);
 
     return await paginate(queryBuilder, page, size);

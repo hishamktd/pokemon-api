@@ -5,10 +5,10 @@ import { Injectable } from '@nestjs/common';
 import { allowedSortFields } from './types.constants';
 import { Types } from './types.entity';
 import { TypesGetAllRes } from './types.interface';
-import { DEFAULT_SORT_FIELD } from '../../common/constants';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
 import { paginate } from '../../common/pagination/pagination.helper';
 import { PaginationParams } from '../../common/pagination/pagination.interface';
+import { getSortField } from '../../common/utils/get-sort-field';
 
 @Injectable()
 export class TypesRepository extends Repository<Types> {
@@ -38,10 +38,7 @@ export class TypesRepository extends Repository<Types> {
       );
     }
 
-    if (!allowedSortFields.includes(sortBy || DEFAULT_SORT_FIELD)) {
-      sortBy = DEFAULT_SORT_FIELD;
-    }
-
+    sortBy = getSortField(sortBy, allowedSortFields);
     queryBuilder.orderBy(`types.${sortBy}`, order);
 
     return await paginate(queryBuilder, page, size);

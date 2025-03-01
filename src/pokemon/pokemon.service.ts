@@ -36,7 +36,10 @@ export class PokemonService {
 
   async findOne(id: number): Promise<Pokemon> {
     try {
-      const pokemon = await this.pokemonRepo.findOne({ where: { id } });
+      const pokemon = await this.pokemonRepo.findOne({
+        where: { id },
+        relations: ['type'],
+      });
 
       if (!pokemon) {
         throw new NotFoundException('Pokemon not found');
