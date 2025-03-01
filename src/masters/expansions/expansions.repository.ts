@@ -1,7 +1,6 @@
 import { DataSource, Repository } from 'typeorm';
 
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 
 import { allowedSortFields } from './expansions.constants';
 import { Expansion } from './expansions.entity';
@@ -13,11 +12,7 @@ import { PaginationParams } from '../../common/pagination/pagination.interface';
 
 @Injectable()
 export class ExpansionsRepository extends Repository<Expansion> {
-  constructor(
-    dataSource: DataSource,
-    @InjectRepository(Expansion)
-    private readonly repo: Repository<Expansion>,
-  ) {
+  constructor(private readonly dataSource: DataSource) {
     super(Expansion, dataSource.createEntityManager());
   }
 
@@ -34,7 +29,7 @@ export class ExpansionsRepository extends Repository<Expansion> {
     sortBy,
     order,
   }: PaginationParams): Promise<PaginationResDto<Expansion>> {
-    const queryBuilder = this.repo.createQueryBuilder('expansion');
+    const queryBuilder = this.createQueryBuilder('expansion');
 
     if (query) {
       queryBuilder.andWhere(

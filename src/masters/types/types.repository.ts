@@ -1,7 +1,6 @@
 import { DataSource, Repository } from 'typeorm';
 
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 
 import { allowedSortFields } from './types.constants';
 import { Types } from './types.entity';
@@ -13,17 +12,12 @@ import { PaginationParams } from '../../common/pagination/pagination.interface';
 
 @Injectable()
 export class TypesRepository extends Repository<Types> {
-  constructor(
-    dataSource: DataSource,
-    @InjectRepository(Types)
-    private readonly repo: Repository<Types>,
-  ) {
+  constructor(private readonly dataSource: DataSource) {
     super(Types, dataSource.createEntityManager());
   }
 
   async findAll(): Promise<TypesGetAllRes[]> {
-    return this.repo
-      .createQueryBuilder('types')
+    return this.createQueryBuilder('types')
       .select(['types.id', 'types.name'])
       .getMany();
   }
@@ -35,7 +29,7 @@ export class TypesRepository extends Repository<Types> {
     sortBy,
     order,
   }: PaginationParams): Promise<PaginationResDto<Types>> {
-    const queryBuilder = this.repo.createQueryBuilder('types');
+    const queryBuilder = this.createQueryBuilder('types');
 
     if (query) {
       queryBuilder.andWhere(
