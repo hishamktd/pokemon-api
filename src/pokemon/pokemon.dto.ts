@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -12,4 +12,9 @@ export class PokemonDto {
   @IsString()
   @IsOptional()
   imageUrl: string;
+
+  @ApiProperty()
+  @IsNumber()
+  @IsNotEmpty()
+  typeId: number;
 }
