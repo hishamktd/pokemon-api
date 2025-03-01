@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/hishamktd/pokemon-api/compare/v0.0.11...v0.0.12) (2025-03-01)
+
+
+### Features
+
+* add 'color' to allowedSortFields in types.constants.ts ([6cf903e](https://github.com/hishamktd/pokemon-api/commit/6cf903eb597dee774aa1e7beffc55c06236ebf3d))
+
 ### [0.0.11](https://github.com/hishamktd/pokemon-api/compare/v0.0.10...v0.0.11) (2025-03-01)
 
 
