@@ -13,6 +13,7 @@ import { FileUploadModule } from './common/file-upload/file-upload.module';
 import { AppConfig } from './config/config.interface';
 import configuration from './config/configuration';
 import { MastersModule } from './masters/masters.module';
+import { PokemonModule } from './pokemon/pokemon.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { MastersModule } from './masters/masters.module';
     }),
     AuthModule,
     MastersModule,
+    PokemonModule,
     FileUploadModule,
   ],
   controllers: [AppController],
