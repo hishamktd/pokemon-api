@@ -14,8 +14,8 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 
 import { TypesDto } from './types.dto';
-import { TypesEntity } from './types.entity';
-import { TypesGetAllRes } from './types.interface';
+import { Types } from './types.entity';
+import { TypesDefault, TypesGetAllRes } from './types.interface';
 import { TypesService } from './types.service';
 import { Pagination } from '../../common/pagination/pagination.decorator';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
@@ -29,7 +29,7 @@ export class TypesController {
   @Get()
   async findPaginated(
     @Pagination() pagination: PaginationParams,
-  ): Promise<PaginationResDto<TypesEntity>> {
+  ): Promise<PaginationResDto<Types>> {
     return this.typesService.findPaginated(pagination);
   }
 
@@ -39,17 +39,17 @@ export class TypesController {
   }
 
   @Get('default')
-  findDefault(): TypesEntity {
+  findDefault(): TypesDefault {
     return this.typesService.findDefault();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number): Promise<TypesEntity> {
+  findOne(@Param('id') id: number): Promise<Types> {
     return this.typesService.findOne(id);
   }
 
   @Post()
-  async create(@Body() type: TypesDto): Promise<TypesEntity> {
+  async create(@Body() type: TypesDto): Promise<Types> {
     const instance = plainToInstance(TypesDto, type);
     const errors = await validate(instance);
 

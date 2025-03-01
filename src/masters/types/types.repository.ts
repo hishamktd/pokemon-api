@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { allowedSortFields } from './types.constants';
-import { TypesEntity } from './types.entity';
+import { Types } from './types.entity';
 import { TypesGetAllRes } from './types.interface';
 import { DEFAULT_SORT_FIELD } from '../../common/constants';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
@@ -12,13 +12,13 @@ import { paginate } from '../../common/pagination/pagination.helper';
 import { PaginationParams } from '../../common/pagination/pagination.interface';
 
 @Injectable()
-export class TypesRepository extends Repository<TypesEntity> {
+export class TypesRepository extends Repository<Types> {
   constructor(
     dataSource: DataSource,
-    @InjectRepository(TypesEntity)
-    private readonly repo: Repository<TypesEntity>,
+    @InjectRepository(Types)
+    private readonly repo: Repository<Types>,
   ) {
-    super(TypesEntity, dataSource.createEntityManager());
+    super(Types, dataSource.createEntityManager());
   }
 
   async findAll(): Promise<TypesGetAllRes[]> {
@@ -34,7 +34,7 @@ export class TypesRepository extends Repository<TypesEntity> {
     query,
     sortBy,
     order,
-  }: PaginationParams): Promise<PaginationResDto<TypesEntity>> {
+  }: PaginationParams): Promise<PaginationResDto<Types>> {
     const queryBuilder = this.repo.createQueryBuilder('types');
 
     if (query) {

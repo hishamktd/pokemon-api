@@ -6,8 +6,8 @@ import {
 
 import { typesDefault } from './types.constants';
 import { TypesDto } from './types.dto';
-import { TypesEntity } from './types.entity';
-import { TypesGetAllRes } from './types.interface';
+import { Types } from './types.entity';
+import { TypesDefault, TypesGetAllRes } from './types.interface';
 import { TypesRepository } from './types.repository';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
 import { PaginationParams } from '../../common/pagination/pagination.interface';
@@ -22,11 +22,11 @@ export class TypesService {
 
   async findPaginated(
     pagination: PaginationParams,
-  ): Promise<PaginationResDto<TypesEntity>> {
+  ): Promise<PaginationResDto<Types>> {
     return this.typesRepo.findPaginated(pagination);
   }
 
-  async findOne(id: number): Promise<TypesEntity> {
+  async findOne(id: number): Promise<Types> {
     const type = await this.typesRepo.findOne({ where: { id } });
 
     if (!type) {
@@ -35,11 +35,11 @@ export class TypesService {
     return type;
   }
 
-  findDefault(): TypesEntity {
+  findDefault(): TypesDefault {
     return typesDefault;
   }
 
-  async create(type: TypesDto): Promise<TypesEntity> {
+  async create(type: TypesDto): Promise<Types> {
     try {
       return await this.typesRepo.save(type);
     } catch (error) {
@@ -47,7 +47,7 @@ export class TypesService {
     }
   }
 
-  async update(id: number, type: TypesDto): Promise<TypesEntity> {
+  async update(id: number, type: TypesDto): Promise<Types> {
     try {
       await this.typesRepo.update(id, type);
       return this.findOne(id);
