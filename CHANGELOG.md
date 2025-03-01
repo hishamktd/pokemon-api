@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/hishamktd/pokemon-api/compare/v0.0.14...v0.0.15) (2025-03-01)
+
+
+### Features
+
+* add Pokemon constants, interface, and repository methods for sorting and pagination ([0dc9eac](https://github.com/hishamktd/pokemon-api/commit/0dc9eac1c18b77c73949a0f06bc2fcb66ecb9c5f))
+* add Pokemon module and remove default Pokemon file ([9bc6e49](https://github.com/hishamktd/pokemon-api/commit/9bc6e494a33a76f5e51936298de40bad35428646))
+* add PokemonService to providers in PokemonModule ([8a4c1c0](https://github.com/hishamktd/pokemon-api/commit/8a4c1c0d0f326211a2b75a09e11e950d891ffa60))
+* enhance PokemonService with CRUD operations and pagination support ([a95654b](https://github.com/hishamktd/pokemon-api/commit/a95654b37b2f044ce552ef3e8768d360a00399ca))
+* enhance repositories and service with improved sorting and relation handling ([8de545b](https://github.com/hishamktd/pokemon-api/commit/8de545bb7b7d2122a113245efc4877d999d54a4a))
+* implement PokemonController with CRUD operations and pagination support ([dfec374](https://github.com/hishamktd/pokemon-api/commit/dfec374f97cbb15fc6999d09bdb3edc4e77dc5d3))
+* improve order validation in PaginationDto to ensure only 'ASC' or 'DESC' are accepted ([ef18927](https://github.com/hishamktd/pokemon-api/commit/ef18927dddba92173e080831565ac4409ab7d562))
+* integrate PokemonRepository into PokemonModule and create PokemonService ([af6e5af](https://github.com/hishamktd/pokemon-api/commit/af6e5afd7ece6f12f3a20c0552f4e12cd8a2dbc9))
+* refactor Types entity and controller to use updated naming conventions and relationships with Pokemon ([ff2405e](https://github.com/hishamktd/pokemon-api/commit/ff2405eb6e1548766218436d164d6ae260caf3ac))
+* update PokemonDto to include typeId with validation ([4c7e751](https://github.com/hishamktd/pokemon-api/commit/4c7e7516115d0bb4108ccb96b81f2501f53aef06))
+
 ### [0.0.14](https://github.com/hishamktd/pokemon-api/compare/v0.0.13...v0.0.14) (2025-03-01)
 
 
