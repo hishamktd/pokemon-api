@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/hishamktd/pokemon-api/compare/v0.0.13...v0.0.14) (2025-03-01)
+
+
+### Features
+
+* add findAll methods to expansions and types repositories and services ([1954655](https://github.com/hishamktd/pokemon-api/commit/195465528a34ce44aaa6fd9ac213be82ae17b168))
+* implement default expansion and type interfaces, and add findAll methods in services and controllers ([aa4384a](https://github.com/hishamktd/pokemon-api/commit/aa4384a1a341ec84cc3ca792f229f2e08b67fbf0))
+* remove header row from expansion and type CSV files ([80d6566](https://github.com/hishamktd/pokemon-api/commit/80d65663169384f295d28f39431b81be76316ac0))
+* remove outdated database backup file ([6c3d9ea](https://github.com/hishamktd/pokemon-api/commit/6c3d9ea5e714fd22103391ab28fa80b6b64739b7))
+* update expansion CSV files to correct row numbering ([0015e39](https://github.com/hishamktd/pokemon-api/commit/0015e39b89abdfb8c5a1ba55c4713c801c860e18))
+
 ### [0.0.13](https://github.com/hishamktd/pokemon-api/compare/v0.0.12...v0.0.13) (2025-03-01)
 
 
