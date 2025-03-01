@@ -17,12 +17,7 @@ export class ExpansionsService {
   constructor(private readonly expansionsRepo: ExpansionsRepository) {}
 
   async findAll(): Promise<ExpansionsGetAllRes[]> {
-    const expansions = await this.expansionsRepo.find();
-
-    return expansions.map((expansion) => ({
-      id: expansion.id,
-      name: expansion.name,
-    }));
+    return await this.expansionsRepo.findAll();
   }
 
   async findPaginated(

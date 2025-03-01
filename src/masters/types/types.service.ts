@@ -17,8 +17,7 @@ export class TypesService {
   constructor(private readonly typesRepo: TypesRepository) {}
 
   async findAll(): Promise<TypesGetAllRes[]> {
-    const types = await this.typesRepo.find();
-    return types.map((type) => ({ id: type.id, name: type.name }));
+    return this.typesRepo.findAll();
   }
 
   async findPaginated(

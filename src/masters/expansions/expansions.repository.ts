@@ -5,6 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { allowedSortFields } from './expansions.constants';
 import { Expansion } from './expansions.entity';
+import { ExpansionsGetAllRes } from './expansions.interface';
 import { DEFAULT_SORT_FIELD } from '../../common/constants';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
 import { paginate } from '../../common/pagination/pagination.helper';
@@ -18,6 +19,12 @@ export class ExpansionsRepository extends Repository<Expansion> {
     private readonly repo: Repository<Expansion>,
   ) {
     super(Expansion, dataSource.createEntityManager());
+  }
+
+  async findAll(): Promise<ExpansionsGetAllRes[]> {
+    return this.createQueryBuilder('expansion')
+      .select(['expansion.id', 'expansion.name'])
+      .getMany();
   }
 
   async findPaginated({

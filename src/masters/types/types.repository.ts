@@ -5,6 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { allowedSortFields } from './types.constants';
 import { TypesEntity } from './types.entity';
+import { TypesGetAllRes } from './types.interface';
 import { DEFAULT_SORT_FIELD } from '../../common/constants';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
 import { paginate } from '../../common/pagination/pagination.helper';
@@ -18,6 +19,13 @@ export class TypesRepository extends Repository<TypesEntity> {
     private readonly repo: Repository<TypesEntity>,
   ) {
     super(TypesEntity, dataSource.createEntityManager());
+  }
+
+  async findAll(): Promise<TypesGetAllRes[]> {
+    return this.repo
+      .createQueryBuilder('types')
+      .select(['types.id', 'types.name'])
+      .getMany();
   }
 
   async findPaginated({
