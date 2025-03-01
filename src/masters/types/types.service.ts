@@ -34,9 +34,10 @@ export class TypesService {
     return new TypesDefault();
   }
 
-  async create(type: TypesDto): Promise<TypesEntity> {
+  async create(typeReq: TypesDto): Promise<TypesEntity> {
     try {
-      return await this.typesRepo.save(type);
+      const type = await this.typesRepo.save(typeReq);
+      return type;
     } catch (error) {
       throw new BadRequestException(`Failed to create type: ${error}`);
     }
