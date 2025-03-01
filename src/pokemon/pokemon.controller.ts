@@ -8,6 +8,7 @@ import {
   Get,
   Param,
   Post,
+  Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
@@ -57,7 +58,7 @@ export class PokemonController {
     return this.pokemonService.create(pokemonDto);
   }
 
-  @Post(':id')
+  @Put(':id')
   async update(@Param('id') id: number, @Body() pokemonDto: PokemonDto) {
     const instance = plainToInstance(PokemonDto, pokemonDto);
     const errors = await validate(instance);
