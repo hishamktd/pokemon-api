@@ -1,1 +1,7 @@
-export const allowedSortFields = ['id', 'name', 'updatedAt', 'createdAt'];
+export const allowedSortFields = [
+  'id',
+  'name',
+  'color',
+  'updatedAt',
+  'createdAt',
+];
