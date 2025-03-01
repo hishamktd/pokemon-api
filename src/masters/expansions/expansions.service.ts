@@ -4,9 +4,10 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import { ExpansionDefault } from './expansions.default';
+import { expansionsDefault } from './expansions.constants';
 import { ExpansionDto } from './expansions.dto';
 import { Expansion } from './expansions.entity';
+import { ExpansionDefault, ExpansionsGetAllRes } from './expansions.interface';
 import { ExpansionsRepository } from './expansions.repository';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
 import { PaginationParams } from '../../common/pagination/pagination.interface';
@@ -14,6 +15,15 @@ import { PaginationParams } from '../../common/pagination/pagination.interface';
 @Injectable()
 export class ExpansionsService {
   constructor(private readonly expansionsRepo: ExpansionsRepository) {}
+
+  async findAll(): Promise<ExpansionsGetAllRes[]> {
+    const expansions = await this.expansionsRepo.find();
+
+    return expansions.map((expansion) => ({
+      id: expansion.id,
+      name: expansion.name,
+    }));
+  }
 
   async findPaginated(
     pagination: PaginationParams,
@@ -33,7 +43,7 @@ export class ExpansionsService {
   }
 
   findDefault(): ExpansionDefault {
-    return new ExpansionDefault();
+    return expansionsDefault;
   }
 
   async create(expansion: ExpansionDto): Promise<Expansion> {

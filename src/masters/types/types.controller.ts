@@ -15,6 +15,7 @@ import { ApiTags } from '@nestjs/swagger';
 
 import { TypesDto } from './types.dto';
 import { TypesEntity } from './types.entity';
+import { TypesGetAllRes } from './types.interface';
 import { TypesService } from './types.service';
 import { Pagination } from '../../common/pagination/pagination.decorator';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
@@ -30,6 +31,11 @@ export class TypesController {
     @Pagination() pagination: PaginationParams,
   ): Promise<PaginationResDto<TypesEntity>> {
     return this.typesService.findPaginated(pagination);
+  }
+
+  @Get('all')
+  async findAll(): Promise<TypesGetAllRes[]> {
+    return this.typesService.findAll();
   }
 
   @Get('default')

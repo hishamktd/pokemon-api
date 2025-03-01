@@ -13,9 +13,9 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { ExpansionDefault } from './expansions.default';
 import { ExpansionDto } from './expansions.dto';
 import { Expansion } from './expansions.entity';
+import { ExpansionDefault, ExpansionsGetAllRes } from './expansions.interface';
 import { ExpansionsService } from './expansions.service';
 import { Pagination } from '../../common/pagination/pagination.decorator';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
@@ -31,6 +31,11 @@ export class ExpansionsController {
     @Pagination() pagination: PaginationParams,
   ): Promise<PaginationResDto<Expansion>> {
     return this.expansionsService.findPaginated(pagination);
+  }
+
+  @Get('all')
+  async findAll(): Promise<ExpansionsGetAllRes[]> {
+    return this.expansionsService.findAll();
   }
 
   @Get('default')

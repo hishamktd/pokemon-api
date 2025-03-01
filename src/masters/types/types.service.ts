@@ -4,9 +4,10 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import { TypesDefault } from './types.default';
+import { typesDefault } from './types.constants';
 import { TypesDto } from './types.dto';
 import { TypesEntity } from './types.entity';
+import { TypesGetAllRes } from './types.interface';
 import { TypesRepository } from './types.repository';
 import { PaginationResDto } from '../../common/pagination/pagination.dto';
 import { PaginationParams } from '../../common/pagination/pagination.interface';
@@ -14,6 +15,11 @@ import { PaginationParams } from '../../common/pagination/pagination.interface';
 @Injectable()
 export class TypesService {
   constructor(private readonly typesRepo: TypesRepository) {}
+
+  async findAll(): Promise<TypesGetAllRes[]> {
+    const types = await this.typesRepo.find();
+    return types.map((type) => ({ id: type.id, name: type.name }));
+  }
 
   async findPaginated(
     pagination: PaginationParams,
@@ -31,7 +37,7 @@ export class TypesService {
   }
 
   findDefault(): TypesEntity {
-    return new TypesDefault();
+    return typesDefault;
   }
 
   async create(type: TypesDto): Promise<TypesEntity> {
