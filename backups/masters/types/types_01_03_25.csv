@@ -1,0 +1,11 @@
+id,createdAt,updatedAt,name,iconUrl,color
+1,2025-03-01 07:01:42.137496,2025-03-01 07:23:58.15686,Fire,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/Fire-R1kUySZ7Mhifj1H4nTg3SHRSe7gjmO,#e52300
+2,2025-03-01 07:38:19.580777,2025-03-01 07:38:19.580777,Water,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/Water-QkBeg0ko5JITG92qUmYMvA2HpCqONY,#0774ba
+3,2025-03-01 07:38:58.171237,2025-03-01 07:38:58.171237,Fighting,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/Fighting-ObSeWq7mlW4veIkZSBI7rwq9f2Jq0u,#a63a22
+4,2025-03-01 07:40:01.35495,2025-03-01 07:40:01.35495,Lightning,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/Lightning-sigDBfemlJSvZr0iWQvrKQBtG26VIp,#f9e007
+5,2025-03-01 07:41:25.067531,2025-03-01 07:41:25.067531,Metal,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/Metal-A5U6w3dxkOJlJMKB9Wn8O78k85MWDq,#968a7c
+6,2025-03-01 07:45:52.522348,2025-03-01 08:08:41.053734,Colorless,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/olorless-K1ebhDuS0mp5TjAQzKYYYke0zpGdHA,#b8afab
+7,2025-03-01 07:46:38.696292,2025-03-01 08:08:26.817193,Psychic,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/Psyhi-LCTD6wznbGk0x8weZE9S1HG4gY6L7f,#7c428d
+8,2025-03-01 07:49:14.90143,2025-03-01 07:49:14.90143,Dragon,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/Dragon-UUP8N5OVXkznJpHIB6OzV7yohRLasJ,#a8822f
+9,2025-03-01 07:50:04.761503,2025-03-01 07:50:04.761503,Grass,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/Grass-k7w1MgfLFypyOumJmrX2vlz7n5gXXj,#0d9c48
+10,2025-03-01 07:51:36.904039,2025-03-01 08:07:56.324286,Darkness,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/types/Darkness-JmIuZk72RxVgoeTeUTkCbXoxu1bnb8,#163a44
