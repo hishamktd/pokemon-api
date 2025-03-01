@@ -39,7 +39,10 @@ export class PaginationDto {
 
   @IsOptional()
   @IsString({ message: 'Order must be a string' })
-  @Transform(({ value }: TransformValue) => value || DEFAULT_SORT_ORDER)
+  @Transform(({ value }: TransformValue) => {
+    const order = value?.toUpperCase();
+    return order === 'ASC' || order === 'DESC' ? order : DEFAULT_SORT_ORDER;
+  })
   order?: 'ASC' | 'DESC' = DEFAULT_SORT_ORDER;
 }
 
