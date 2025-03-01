@@ -6,10 +6,17 @@
 /pokemon
 ```
 
-#### _TYPE_
+#### TYPE _( from master )_
 
 ```
-GRASS, FIRE, WATER, LIGHTNING, PSYCHIC, FIGHTING, DARKNESS, METAL, DRAGON, COLORLESS.
+  {
+    id: number;
+    name: string;
+    iconUrl: string;
+    color: string;
+    createdAt: string;
+    updatedAt: string;
+  }
 ```
 
 ### Methods
@@ -34,6 +41,7 @@ GRASS, FIRE, WATER, LIGHTNING, PSYCHIC, FIGHTING, DARKNESS, METAL, DRAGON, COLOR
         id: number;
         name: string;
         type: TYPE;
+        typeId: number;
         imageUrl?: string;
         createdAt: string;
         updatedAt: string;
@@ -64,6 +72,7 @@ GRASS, FIRE, WATER, LIGHTNING, PSYCHIC, FIGHTING, DARKNESS, METAL, DRAGON, COLOR
     id: number;
     name: string;
     type: TYPE;
+    typeId: number;
     imageUrl?: string;
     createdAt: string;
     updatedAt: string;
@@ -76,9 +85,8 @@ GRASS, FIRE, WATER, LIGHTNING, PSYCHIC, FIGHTING, DARKNESS, METAL, DRAGON, COLOR
 
   ```
   {
-    id: number;
     name: string;
-    type: TYPE;
+    typeId: number;
     imageUrl?: string;
   }
   ```
@@ -90,6 +98,7 @@ GRASS, FIRE, WATER, LIGHTNING, PSYCHIC, FIGHTING, DARKNESS, METAL, DRAGON, COLOR
     id: number;
     name: string;
     type: TYPE;
+    typeId: number;
     imageUrl?: string;
     createdAt: string;
     updatedAt: string;
@@ -98,13 +107,18 @@ GRASS, FIRE, WATER, LIGHTNING, PSYCHIC, FIGHTING, DARKNESS, METAL, DRAGON, COLOR
 
 ### 4. PUT
 
+- Params
+
+  ```
+  id: number;
+  ```
+
 - Request
 
   ```
   {
-    id: number;
     name: string;
-    type: TYPE;
+    typeId: number;
     imageUrl?: string;
   }
   ```
@@ -116,6 +130,7 @@ GRASS, FIRE, WATER, LIGHTNING, PSYCHIC, FIGHTING, DARKNESS, METAL, DRAGON, COLOR
     id: number;
     name: string;
     type: TYPE;
+    typeId: number;
     imageUrl?: string;
     createdAt: string;
     updatedAt: string;
