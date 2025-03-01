@@ -38,7 +38,7 @@ export class TypesService {
     try {
       return await this.typesRepo.save(type);
     } catch (error) {
-      throw new BadRequestException(`Failed to create expansion: ${error}`);
+      throw new BadRequestException(`Failed to create type: ${error}`);
     }
   }
 
@@ -47,7 +47,7 @@ export class TypesService {
       await this.typesRepo.update(id, type);
       return this.findOne(id);
     } catch (error) {
-      throw new BadRequestException(`Failed to update expansion: ${error}`);
+      throw new BadRequestException(`Failed to update type: ${error}`);
     }
   }
 
