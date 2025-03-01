@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/hishamktd/pokemon-api/compare/v0.0.10...v0.0.11) (2025-03-01)
+
+
+### Features
+
+* add allowedSortFields constant for sorting in Types module ([a921782](https://github.com/hishamktd/pokemon-api/commit/a9217820fa1ebea50f1c4bcab94563c4057157f5))
+* add create and update methods to TypesService with error handling ([d124e20](https://github.com/hishamktd/pokemon-api/commit/d124e20e9e3853d5cfb70d91f3fd0b574afe609b))
+* add delete method to TypesService for removing a type ([8021fd7](https://github.com/hishamktd/pokemon-api/commit/8021fd787930c4787316424c612da2c32628d27a))
+* add error handling to delete method in TypesService ([9de59a8](https://github.com/hishamktd/pokemon-api/commit/9de59a84947e0a1b0b1427590f9a8b7c554d4ba9))
+* add error handling to update and delete methods in ExpansionsService ([5e5dfc0](https://github.com/hishamktd/pokemon-api/commit/5e5dfc08c1042ce73a9d32c7bc83f85c81ff3615))
+* add findOne method to TypesService for retrieving a single type with error handling ([e46f35a](https://github.com/hishamktd/pokemon-api/commit/e46f35adf901cf92d05f6f4a0dcf710ffc5745c2))
+* add findPaginated method to TypesController for paginated retrieval of types ([66b76f7](https://github.com/hishamktd/pokemon-api/commit/66b76f7e4c7cfb6912e62f8291a35efca3f925da))
+* add initial TypeScript files for types module ([1ad6f30](https://github.com/hishamktd/pokemon-api/commit/1ad6f3049c079d0e97c64fca014e7122190cb6a0))
+* add TypesDto class with validation and API properties ([8b7d178](https://github.com/hishamktd/pokemon-api/commit/8b7d17848e8c756e09e864a1800dca18a6a4cbf9))
+* change update method in TypesController to use PUT instead of POST ([ade0024](https://github.com/hishamktd/pokemon-api/commit/ade00247b233288708b757ef64098431c22455e4))
+* create TypesEntity class with properties for name, iconUrl, and color ([e9a1f3f](https://github.com/hishamktd/pokemon-api/commit/e9a1f3f53f2bc1ec82890ddf522d68d7fc003d0f))
+* enhance TypesController with CRUD operations and validation ([8450c08](https://github.com/hishamktd/pokemon-api/commit/8450c0868fcbbd3b6cf031632db94047dbfd5730))
+* implement TypesDefault class with default properties for TypesDto ([26c49e2](https://github.com/hishamktd/pokemon-api/commit/26c49e2937af1f887abedcdee95f2403c0caff71))
+* implement TypesRepository with pagination and sorting functionality ([2a21fff](https://github.com/hishamktd/pokemon-api/commit/2a21fff5e6cd41e6289b51664bd1b24e0255ae4a))
+* integrate TypeOrmModule for TypesEntity in TypesModule ([97e22c4](https://github.com/hishamktd/pokemon-api/commit/97e22c4c8344ec569740d4b08aea3abf79a99eaa))
+* integrate TypesModule into MastersModule ([2fbec6e](https://github.com/hishamktd/pokemon-api/commit/2fbec6ee1b91e295d744075d2240d8e4abbcbde8))
+* register TypesController and TypesService in TypesModule ([bcb4c0f](https://github.com/hishamktd/pokemon-api/commit/bcb4c0f25f5a441078cc3198ddf5b94cf272bfb5))
+* update TypesRepository to use TypesEntity and implement TypesService for pagination ([badc4f1](https://github.com/hishamktd/pokemon-api/commit/badc4f1d6a1916d6de23c47646ef6af885266e98))
+
 ### [0.0.10](https://github.com/hishamktd/pokemon-api/compare/v0.0.9...v0.0.10) (2025-02-28)
 
 
