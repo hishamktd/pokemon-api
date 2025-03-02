@@ -3,10 +3,13 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { pokemonDefault } from './pokemon.constants';
 import { PokemonDto } from './pokemon.dto';
 import { Pokemon } from './pokemon.entity';
-import { PokemonDefault, PokemonGetAllRes } from './pokemon.interface';
+import {
+  PokemonDefault,
+  PokemonGetAllRes,
+  PokemonParams,
+} from './pokemon.interface';
 import { PokemonRepository } from './pokemon.repository';
 import { PaginationResDto } from '../common/pagination/pagination.dto';
-import { PaginationParams } from '../common/pagination/pagination.interface';
 
 @Injectable()
 export class PokemonService {
@@ -21,10 +24,10 @@ export class PokemonService {
   }
 
   async findPaginated(
-    pagination: PaginationParams,
+    params: PokemonParams,
   ): Promise<PaginationResDto<Pokemon>> {
     try {
-      return await this.pokemonRepo.findPaginated(pagination);
+      return await this.pokemonRepo.findPaginated(params);
     } catch (error) {
       throw new Error(`Failed to find paginated Pokemon ${error}`);
     }

@@ -4,10 +4,9 @@ import { Injectable } from '@nestjs/common';
 
 import { allowedSortFields } from './pokemon.constants';
 import { Pokemon } from './pokemon.entity';
-import { PokemonGetAllRes } from './pokemon.interface';
+import { PokemonGetAllRes, PokemonParams } from './pokemon.interface';
 import { PaginationResDto } from '../common/pagination/pagination.dto';
 import { paginate } from '../common/pagination/pagination.helper';
-import { PaginationParams } from '../common/pagination/pagination.interface';
 import { getSortField } from '../common/utils/get-sort-field';
 
 @Injectable()
@@ -28,7 +27,8 @@ export class PokemonRepository extends Repository<Pokemon> {
     query,
     sortBy,
     order,
-  }: PaginationParams): Promise<PaginationResDto<Pokemon>> {
+    stage,
+  }: PokemonParams): Promise<PaginationResDto<Pokemon>> {
     const queryBuilder = this.createQueryBuilder('pokemon')
       .leftJoin('pokemon.type', 'type')
       .addSelect(['type.id', 'type.name', 'type.iconUrl', 'type.color'])
@@ -49,6 +49,10 @@ export class PokemonRepository extends Repository<Pokemon> {
           search: `%${query}%`,
         },
       );
+    }
+
+    if (stage) {
+      queryBuilder.andWhere('pokemon.stage = :stage', { stage });
     }
 
     sortBy = getSortField(sortBy, allowedSortFields);

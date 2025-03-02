@@ -12,13 +12,16 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { PokemonDto } from './pokemon.dto';
+import { PokemonDto, PokemonParamsDto } from './pokemon.dto';
 import { Pokemon } from './pokemon.entity';
-import { PokemonDefault, PokemonGetAllRes } from './pokemon.interface';
+import {
+  PokemonDefault,
+  PokemonGetAllRes,
+  PokemonParams,
+} from './pokemon.interface';
 import { PokemonService } from './pokemon.service';
 import { Pagination } from '../common/pagination/pagination.decorator';
 import { PaginationResDto } from '../common/pagination/pagination.dto';
-import { PaginationParams } from '../common/pagination/pagination.interface';
 
 @ApiTags('Pokemon')
 @Controller('pokemon')
@@ -27,9 +30,9 @@ export class PokemonController {
 
   @Get()
   async findPaginated(
-    @Pagination() pagination: PaginationParams,
+    @Pagination(PokemonParamsDto) params: PokemonParams,
   ): Promise<PaginationResDto<Pokemon>> {
-    return this.pokemonService.findPaginated(pagination);
+    return this.pokemonService.findPaginated(params);
   }
 
   @Get('all')

@@ -1,4 +1,5 @@
 import { Stage } from './pokemon.enum';
+import { PaginationParams } from '../common/pagination/pagination.interface';
 
 export interface PokemonDefault {
   id: number;
@@ -16,4 +17,8 @@ export interface PokemonDefault {
 export interface PokemonGetAllRes {
   id: number;
   name: string;
+}
+
+export interface PokemonParams extends PaginationParams {
+  stage: Stage;
 }
