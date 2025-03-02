@@ -4,6 +4,7 @@ import { pokemonDefault } from './pokemon.constants';
 import { PokemonDto } from './pokemon.dto';
 import { Pokemon } from './pokemon.entity';
 import {
+  GetAllParams,
   PokemonDefault,
   PokemonGetAllRes,
   PokemonParams,
@@ -15,9 +16,9 @@ import { PaginationResDto } from '../common/pagination/pagination.dto';
 export class PokemonService {
   constructor(private readonly pokemonRepo: PokemonRepository) {}
 
-  async findAll(): Promise<PokemonGetAllRes[]> {
+  async findAll(params: GetAllParams): Promise<PokemonGetAllRes[]> {
     try {
-      return await this.pokemonRepo.findAll();
+      return await this.pokemonRepo.findAll(params);
     } catch (error) {
       throw new Error(`Failed to find all Pokemon ${error}`);
     }

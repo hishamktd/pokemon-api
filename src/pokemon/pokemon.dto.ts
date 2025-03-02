@@ -5,7 +5,6 @@ import { ApiProperty } from '@nestjs/swagger';
 
 import { Stage } from './pokemon.enum';
 import { PaginationDto } from '../common/pagination/pagination.dto';
-import { TransformValue } from '../common/pagination/pagination.interface';
 
 export class PokemonDto {
   @ApiProperty()
@@ -33,12 +32,26 @@ export class PokemonDto {
   evolvedFromId?: number;
 }
 
+export function transformStage() {
+  return Transform(({ value }) => {
+    if (typeof value !== 'string') return '';
+    const upperValue = value.toUpperCase();
+    return Object.values(Stage).includes(upperValue as Stage)
+      ? (upperValue as Stage)
+      : '';
+  });
+}
+
+export class GetAllParamsDto {
+  @IsOptional()
+  @IsString({ message: 'Stage must be BASIC, STAGE_1, STAGE_2' })
+  @transformStage()
+  stage?: Stage;
+}
+
 export class PokemonParamsDto extends PaginationDto {
   @IsOptional()
-  @IsString({ message: 'Order must be a string' })
-  @Transform(({ value }: TransformValue) => {
-    const stage = value?.toUpperCase();
-    return stage;
-  })
+  @IsString({ message: 'Stage must be BASIC, STAGE_1, STAGE_2' })
+  @transformStage()
   stage?: Stage;
 }

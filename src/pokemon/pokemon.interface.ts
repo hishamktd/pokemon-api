@@ -20,5 +20,9 @@ export interface PokemonGetAllRes {
 }
 
 export interface PokemonParams extends PaginationParams {
-  stage: Stage;
+  stage?: Stage;
+}
+
+export interface GetAllParams {
+  stage?: string;
 }

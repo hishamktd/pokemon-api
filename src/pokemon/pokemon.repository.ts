@@ -4,7 +4,11 @@ import { Injectable } from '@nestjs/common';
 
 import { allowedSortFields } from './pokemon.constants';
 import { Pokemon } from './pokemon.entity';
-import { PokemonGetAllRes, PokemonParams } from './pokemon.interface';
+import {
+  GetAllParams,
+  PokemonGetAllRes,
+  PokemonParams,
+} from './pokemon.interface';
 import { PaginationResDto } from '../common/pagination/pagination.dto';
 import { paginate } from '../common/pagination/pagination.helper';
 import { getSortField } from '../common/utils/get-sort-field';
@@ -15,10 +19,14 @@ export class PokemonRepository extends Repository<Pokemon> {
     super(Pokemon, dataSource.createEntityManager());
   }
 
-  async findAll(): Promise<PokemonGetAllRes[]> {
-    return this.createQueryBuilder('pokemon')
-      .select(['pokemon.id', 'pokemon.name'])
-      .getMany();
+  async findAll({ stage }: GetAllParams): Promise<PokemonGetAllRes[]> {
+    const queryBuilder = this.createQueryBuilder('pokemon');
+
+    if (stage && stage !== '') {
+      queryBuilder.andWhere('pokemon.stage = :stage', { stage });
+    }
+
+    return queryBuilder.select(['pokemon.id', 'pokemon.name']).getMany();
   }
 
   async findPaginated({

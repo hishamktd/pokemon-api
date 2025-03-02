@@ -1,5 +1,5 @@
 import { plainToInstance } from 'class-transformer';
-import { validate } from 'class-validator';
+import { validate, validateSync } from 'class-validator';
 
 import {
   BadRequestException,
@@ -9,12 +9,14 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { PokemonDto, PokemonParamsDto } from './pokemon.dto';
+import { GetAllParamsDto, PokemonDto, PokemonParamsDto } from './pokemon.dto';
 import { Pokemon } from './pokemon.entity';
 import {
+  GetAllParams,
   PokemonDefault,
   PokemonGetAllRes,
   PokemonParams,
@@ -36,8 +38,18 @@ export class PokemonController {
   }
 
   @Get('all')
-  async findAll(): Promise<PokemonGetAllRes[]> {
-    return this.pokemonService.findAll();
+  async findAll(@Query() params: GetAllParams): Promise<PokemonGetAllRes[]> {
+    const getAllParams = plainToInstance(GetAllParamsDto, params, {
+      enableImplicitConversion: true,
+    });
+
+    const errors = validateSync(getAllParams);
+
+    if (errors.length > 0) {
+      throw new BadRequestException(errors);
+    }
+
+    return this.pokemonService.findAll(params);
   }
 
   @Get('default')
