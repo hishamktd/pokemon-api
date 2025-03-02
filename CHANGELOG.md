@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/hishamktd/pokemon-api/compare/v0.0.15...v0.0.16) (2025-03-02)
+
+
+### Features
+
+* add stage and evolution properties to Pokemon model and DTO ([706394b](https://github.com/hishamktd/pokemon-api/commit/706394b1dcc151c6e90928eb7fec58d3713a911a))
+* change update endpoint from POST to PUT in PokemonController ([5dfdddb](https://github.com/hishamktd/pokemon-api/commit/5dfdddbf28f247be7211fcf5d36febd1d9065d67))
+* update Pokemon documentation to include stage and evolution details ([5765594](https://github.com/hishamktd/pokemon-api/commit/5765594e477d8b7380a659edea9b03589c3497da))
+
 ### [0.0.15](https://github.com/hishamktd/pokemon-api/compare/v0.0.14...v0.0.15) (2025-03-01)
 
 
