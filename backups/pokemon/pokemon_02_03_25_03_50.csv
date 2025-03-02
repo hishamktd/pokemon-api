@@ -1,4 +1,3 @@
-id,createdAt,updatedAt,name,imageUrl,typeId,stage,evolvedFromId
 1,2025-03-02 09:46:04.489976,2025-03-02 09:46:04.489976,Togapi,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Togapi-EfgYLPcSx87aetGdzi3R4UssAhkmfY,7,BASIC,
 2,2025-03-02 09:50:51.984796,2025-03-02 09:54:48.194541,Bulbasaur,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Bulbasaur-zQ6UBSct3EH91VmykxUGnLtuQcuvlt,9,BASIC,
 3,2025-03-02 09:58:21.107032,2025-03-02 09:58:47.818746,Ivysaur,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Ivysaur-w5NME4t0wtlRzXpsFwveEAmT8GGKMb,9,STAGE_1,2
