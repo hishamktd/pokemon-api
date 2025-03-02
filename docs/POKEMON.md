@@ -1,4 +1,4 @@
-# **Expansion**
+# **Pokemon**
 
 ### Endpoint
 
@@ -17,6 +17,11 @@
     createdAt: string;
     updatedAt: string;
   }
+```
+
+### Stage
+```
+BASIC | STAGE 1 | STAGE 2
 ```
 
 ### Methods
@@ -42,6 +47,9 @@
         name: string;
         type: TYPE;
         typeId: number;
+        stage: STAGE;
+        evolvedFromId?: number;
+        evolvedFrom: Pokemon;
         imageUrl?: string;
         createdAt: string;
         updatedAt: string;
@@ -73,6 +81,9 @@
     name: string;
     type: TYPE;
     typeId: number;
+    stage: STAGE;
+    evolvedFromId?: number;
+    evolvedFrom: Pokemon;
     imageUrl?: string;
     createdAt: string;
     updatedAt: string;
@@ -88,6 +99,8 @@
     name: string;
     typeId: number;
     imageUrl?: string;
+    stage: STAGE;
+    evolvedFromId?: number;
   }
   ```
 
@@ -97,8 +110,9 @@
   {
     id: number;
     name: string;
-    type: TYPE;
     typeId: number;
+    stage: STAGE;
+    evolvedFromId?: number;
     imageUrl?: string;
     createdAt: string;
     updatedAt: string;
@@ -120,6 +134,8 @@
     name: string;
     typeId: number;
     imageUrl?: string;
+    stage: STAGE;
+    evolvedFromId?: number;
   }
   ```
 
@@ -129,8 +145,9 @@
   {
     id: number;
     name: string;
-    type: TYPE;
     typeId: number;
+    stage: STAGE;
+    evolvedFromId?: number;
     imageUrl?: string;
     createdAt: string;
     updatedAt: string;
