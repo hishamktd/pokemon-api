@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
-import { Stage } from './pokemon.enum';
+import { Gender, Stage } from './pokemon.enum';
 import { AbstractEntity } from '../common/entities/abstract.entity';
 import { Types } from '../masters/types/types.entity';
 
@@ -33,4 +33,7 @@ export class Pokemon extends AbstractEntity {
 
   @OneToMany(() => Pokemon, (pokemon) => pokemon.evolvedFrom)
   evolutions: Pokemon[];
+
+  @Column({ type: 'text', nullable: true })
+  gender: Gender;
 }

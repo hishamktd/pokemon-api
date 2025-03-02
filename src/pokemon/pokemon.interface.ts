@@ -1,4 +1,4 @@
-import { Stage } from './pokemon.enum';
+import { Gender, Stage } from './pokemon.enum';
 import { PaginationParams } from '../common/pagination/pagination.interface';
 
 export interface PokemonDefault {
@@ -12,6 +12,7 @@ export interface PokemonDefault {
   stage: Stage;
   evolvedFromId: null;
   evolvedFrom: null;
+  gender: Gender;
 }
 
 export interface PokemonGetAllRes {

@@ -3,7 +3,7 @@ import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 import { ApiProperty } from '@nestjs/swagger';
 
-import { Stage } from './pokemon.enum';
+import { Gender, Stage } from './pokemon.enum';
 import { PaginationDto } from '../common/pagination/pagination.dto';
 
 export class PokemonDto {
@@ -30,6 +30,11 @@ export class PokemonDto {
   @IsNumber()
   @IsOptional()
   evolvedFromId?: number;
+
+  @ApiProperty({ enum: Gender })
+  @IsString()
+  @IsOptional()
+  gender: Gender;
 }
 
 export function transformStage() {
