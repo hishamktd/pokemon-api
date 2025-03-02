@@ -1,0 +1,16 @@
+id,createdAt,updatedAt,name,imageUrl,typeId,stage,evolvedFromId
+1,2025-03-02 09:46:04.489976,2025-03-02 09:46:04.489976,Togapi,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Togapi-EfgYLPcSx87aetGdzi3R4UssAhkmfY,7,BASIC,
+2,2025-03-02 09:50:51.984796,2025-03-02 09:54:48.194541,Bulbasaur,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Bulbasaur-zQ6UBSct3EH91VmykxUGnLtuQcuvlt,9,BASIC,
+3,2025-03-02 09:58:21.107032,2025-03-02 09:58:47.818746,Ivysaur,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Ivysaur-w5NME4t0wtlRzXpsFwveEAmT8GGKMb,9,STAGE_1,2
+4,2025-03-02 10:03:52.893938,2025-03-02 10:03:52.893938,Venusaur,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Venusaur-BDmw4E1S3evcI2bVL5Fy8ylU40Sn5O,9,STAGE_2,3
+5,2025-03-02 10:06:28.518505,2025-03-02 10:06:28.518505,Rhyhorn,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Rhyhorn-Mq1rbLP5y2B7hpJyH25y3Q4RJRy1Yr,3,BASIC,
+6,2025-03-02 10:07:56.078523,2025-03-02 10:11:22.45869,Sizzlipede,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Sizzlipede-rwPPXfVQxl1yCOZhgggrr4bjUu0CPt,1,BASIC,
+7,2025-03-02 10:12:01.553181,2025-03-02 10:12:01.553181,Pidgey,,6,BASIC,
+8,2025-03-02 10:13:13.483387,2025-03-02 10:13:13.483387,Mewtwo,,7,BASIC,
+9,2025-03-02 10:13:37.572508,2025-03-02 10:13:37.572508,Spearow,,6,BASIC,
+10,2025-03-02 10:13:55.906243,2025-03-02 10:13:55.906243,Eevee,,6,BASIC,
+11,2025-03-02 10:14:25.311388,2025-03-02 10:14:25.311388,Grimer,,10,BASIC,
+12,2025-03-02 10:14:52.746964,2025-03-02 10:14:52.746964,Porygon,,6,BASIC,
+13,2025-03-02 10:15:17.840657,2025-03-02 10:15:17.840657,Zapdos,,4,BASIC,
+14,2025-03-02 10:16:24.027048,2025-03-02 10:18:08.849321,Geodude,https://vishmvrcizpuo7zs.public.blob.vercel-storage.com/pokemon/Geodude-urGZopYjgDF0gm34lQmnhVO0PO0fZW,3,BASIC,
+15,2025-03-02 10:18:53.934234,2025-03-02 10:19:30.371388,Graveler,,3,STAGE_1,14
