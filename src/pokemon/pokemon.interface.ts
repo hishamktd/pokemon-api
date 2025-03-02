@@ -1,3 +1,5 @@
+import { Stage } from './pokemon.enum';
+
 export interface PokemonDefault {
   id: number;
   createdAt: Date;
@@ -6,6 +8,9 @@ export interface PokemonDefault {
   typeId: null;
   imageUrl: null;
   type: null;
+  stage: Stage;
+  evolvedFromId: null;
+  evolvedFrom: null;
 }
 
 export interface PokemonGetAllRes {

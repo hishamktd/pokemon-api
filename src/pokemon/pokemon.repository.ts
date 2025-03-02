@@ -31,7 +31,16 @@ export class PokemonRepository extends Repository<Pokemon> {
   }: PaginationParams): Promise<PaginationResDto<Pokemon>> {
     const queryBuilder = this.createQueryBuilder('pokemon')
       .leftJoin('pokemon.type', 'type')
-      .addSelect(['type.id', 'type.name', 'type.iconUrl', 'type.color']);
+      .addSelect(['type.id', 'type.name', 'type.iconUrl', 'type.color'])
+      .leftJoin('pokemon.evolvedFrom', 'evolvedFrom')
+      .addSelect(['evolvedFrom.id', 'evolvedFrom.name', 'evolvedFrom.imageUrl'])
+      .leftJoin('evolvedFrom.type', 'evolvedFromType')
+      .addSelect([
+        'evolvedFromType.id',
+        'evolvedFromType.name',
+        'evolvedFromType.iconUrl',
+        'evolvedFromType.color',
+      ]);
 
     if (query) {
       queryBuilder.where(

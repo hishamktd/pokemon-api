@@ -1,3 +1,4 @@
+import { Stage } from './pokemon.enum';
 import { PokemonDefault } from './pokemon.interface';
 
 export const allowedSortFields = [
@@ -16,4 +17,7 @@ export const pokemonDefault: PokemonDefault = {
   typeId: null,
   imageUrl: null,
   type: null,
+  stage: Stage.BASIC,
+  evolvedFromId: null,
+  evolvedFrom: null,
 };

@@ -38,7 +38,7 @@ export class PokemonService {
     try {
       const pokemon = await this.pokemonRepo.findOne({
         where: { id },
-        relations: ['type'],
+        relations: ['type', 'evolvedFrom', 'evolvedFrom.type'],
       });
 
       if (!pokemon) {
