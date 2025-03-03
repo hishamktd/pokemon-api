@@ -1,5 +1,11 @@
 import { Transform } from 'class-transformer';
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -35,6 +41,11 @@ export class PokemonDto {
   @IsString()
   @IsOptional()
   gender: Gender;
+
+  @ApiProperty()
+  @IsBoolean()
+  @IsOptional()
+  isFossil: boolean;
 }
 
 export function transformStage() {

@@ -36,4 +36,7 @@ export class Pokemon extends AbstractEntity {
 
   @Column({ type: 'text', nullable: true })
   gender: Gender;
+
+  @Column({ type: 'boolean', nullable: true, default: false })
+  isFossil: boolean;
 }

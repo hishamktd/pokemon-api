@@ -13,6 +13,7 @@ export interface PokemonDefault {
   evolvedFromId: null;
   evolvedFrom: null;
   gender: Gender;
+  isFossil: boolean;
 }
 
 export interface PokemonGetAllRes {

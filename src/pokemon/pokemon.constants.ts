@@ -15,4 +15,5 @@ export const pokemonDefault: PokemonDefault = {
   evolvedFromId: null,
   evolvedFrom: null,
   gender: Gender.UNKNOWN,
+  isFossil: false,
 };
