@@ -6,7 +6,8 @@ export const allowedSortFields = [
   'name',
   'updatedAt',
   'createdAt',
-  'typeName',
+  'type.name',
+  'evolvedFrom.name',
 ];
 
 export const pokemonDefault: PokemonDefault = {
