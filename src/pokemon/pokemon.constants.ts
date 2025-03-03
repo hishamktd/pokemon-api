@@ -1,14 +1,7 @@
 import { Gender, Stage } from './pokemon.enum';
 import { PokemonDefault } from './pokemon.interface';
 
-export const allowedSortFields = [
-  'id',
-  'name',
-  'updatedAt',
-  'createdAt',
-  'type.name',
-  'evolvedFrom.name',
-];
+export const allowedSortFields = ['id', 'name', 'updatedAt', 'createdAt'];
 
 export const pokemonDefault: PokemonDefault = {
   id: 0,
