@@ -35,12 +35,12 @@ export class Pokemon extends AbstractEntity {
   @OneToMany(() => Pokemon, (pokemon) => pokemon.evolvedFrom)
   evolutions: Pokemon[];
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'enum', enum: Gender, nullable: true })
   gender: Gender;
 
-  @Column({ type: 'boolean', nullable: true, default: false })
+  @Column({ type: 'boolean', default: false })
   isFossil: boolean;
 
-  @OneToMany(() => Cards, (card) => card.type)
+  @OneToMany(() => Cards, (card) => card.pokemon)
   card: Cards[];
 }

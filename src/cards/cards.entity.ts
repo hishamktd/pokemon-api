@@ -33,7 +33,7 @@ export class Cards extends AbstractEntity {
   @ManyToOne(() => Pokemon, (pokemon) => pokemon.card, {
     onDelete: 'RESTRICT',
   })
-  @JoinColumn({ name: 'typeId' })
+  @JoinColumn({ name: 'pokemonId' })
   pokemon: Pokemon;
 
   @Column({ type: 'int', nullable: true })
@@ -42,6 +42,6 @@ export class Cards extends AbstractEntity {
   @ManyToOne(() => Expansion, (expansion) => expansion.card, {
     onDelete: 'RESTRICT',
   })
-  @JoinColumn({ name: 'typeId' })
+  @JoinColumn({ name: 'expansionId' })
   expansion: Expansion;
 }

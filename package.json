@@ -18,7 +18,11 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "release": "standard-version"
+    "release": "standard-version",
+    "migration:generate": "typeorm migration:generate -d src/migrations -n",
+    "migration:run": "typeorm migration:run -d src/migrations",
+    "migration:revert": "typeorm migration:revert -d src/migrations",
+    "migration:show": "typeorm migration:show"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
