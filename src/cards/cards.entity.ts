@@ -6,7 +6,7 @@ import { Expansion } from '../masters/expansions/expansions.entity';
 import { Types } from '../masters/types/types.entity';
 import { Pokemon } from '../pokemon/pokemon.entity';
 
-@Entity('pokemon')
+@Entity('cards')
 export class Cards extends AbstractEntity {
   @Column({ type: 'text' })
   name: string;
