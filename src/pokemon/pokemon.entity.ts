@@ -1,6 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
 import { Gender, Stage } from './pokemon.enum';
+import { Cards } from '../cards/cards.entity';
 import { AbstractEntity } from '../common/entities/abstract.entity';
 import { Types } from '../masters/types/types.entity';
 
@@ -39,4 +40,7 @@ export class Pokemon extends AbstractEntity {
 
   @Column({ type: 'boolean', nullable: true, default: false })
   isFossil: boolean;
+
+  @OneToMany(() => Cards, (card) => card.type)
+  card: Cards[];
 }

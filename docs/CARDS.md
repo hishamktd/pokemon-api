@@ -207,7 +207,7 @@ POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
 - Response
 
   ```
-  [{
+  {
     id: number;
     name: string;
     type: null;
@@ -219,5 +219,5 @@ POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
     thumbnailUrl?: string;
     createdAt: string;
     updatedAt: string;
-  }]
+  }
   ```
