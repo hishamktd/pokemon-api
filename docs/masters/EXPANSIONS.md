@@ -133,3 +133,42 @@
   ```
     id: number;
   ```
+
+### 6. GET ALL
+
+#### Endpoint
+
+```
+/masters/expansions/all
+```
+
+- Response
+
+  ```
+  [{
+    id: number;
+    name: string;
+  }]
+  ```
+
+### 6. GET DEFAULT
+
+#### Endpoint
+
+```
+/masters/expansions/default
+```
+
+- Response
+
+  ```
+  [{
+    id: number;
+    name: string;
+    totalCards: number;
+    points?: string;
+    imageUrl?: string;
+    createdAt: string;
+    updatedAt: string;
+  }]
+  ```

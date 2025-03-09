@@ -127,3 +127,41 @@
   ```
     id: number;
   ```
+
+### 6. GET ALL
+
+#### Endpoint
+
+```
+/masters/types/all
+```
+
+- Response
+
+  ```
+  [{
+    id: number;
+    name: string;
+  }]
+  ```
+
+### 6. GET DEFAULT
+
+#### Endpoint
+
+```
+/masters/types/default
+```
+
+- Response
+
+  ```
+  [{
+    id: number;
+    name: string;
+    iconUrl: string;
+    color: string;
+    createdAt: string;
+    updatedAt: string;
+  }]
+  ```

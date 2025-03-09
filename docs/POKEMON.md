@@ -20,13 +20,14 @@
 ```
 
 ### Stage
+
 ```
 BASIC | STAGE 1 | STAGE 2
 ```
 
 ### Methods
 
-### 1. GET ALL
+### 1. GET PAGINATED
 
 - Params
 
@@ -160,4 +161,44 @@ BASIC | STAGE 1 | STAGE 2
 
   ```
     id: number;
+  ```
+
+### 6. GET ALL
+
+#### Endpoint
+
+```
+/pokemon/all
+```
+
+- Response
+
+  ```
+  [{
+    id: number;
+    name: string;
+  }]
+  ```
+
+### 6. GET DEFAULT
+
+#### Endpoint
+
+```
+/pokemon/default
+```
+
+- Response
+
+  ```
+  [{
+    id: number;
+    name: string;
+    typeId: number;
+    stage: STAGE;
+    evolvedFromId?: number;
+    imageUrl?: string;
+    createdAt: string;
+    updatedAt: string;
+  }]
   ```
