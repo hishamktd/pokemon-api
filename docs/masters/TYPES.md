@@ -145,7 +145,7 @@
   }]
   ```
 
-### 6. GET DEFAULT
+### 7. GET DEFAULT
 
 #### Endpoint
 

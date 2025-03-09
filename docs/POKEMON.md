@@ -171,6 +171,14 @@ BASIC | STAGE 1 | STAGE 2
 /pokemon/all
 ```
 
+- Params
+
+```
+{
+  stage: Stage
+}
+```
+
 - Response
 
   ```
@@ -180,7 +188,7 @@ BASIC | STAGE 1 | STAGE 2
   }]
   ```
 
-### 6. GET DEFAULT
+### 7. GET DEFAULT
 
 #### Endpoint
 
@@ -202,3 +210,22 @@ BASIC | STAGE 1 | STAGE 2
     updatedAt: string;
   }]
   ```
+
+### 8. GET ALL WITH TYPES
+
+#### Endpoint
+
+```
+/pokemon/all/types
+```
+
+- Response
+
+```
+[{
+    id: number;
+    name: string;
+    type: TYPE;
+    isFossil: boolean;
+}]
+```
