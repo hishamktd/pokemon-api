@@ -1,5 +1,6 @@
 import { Gender, Stage } from './pokemon.enum';
 import { PaginationParams } from '../common/pagination/pagination.interface';
+import { TypesDefault } from '../masters/types/types.interface';
 
 export interface PokemonDefault {
   id: number;
@@ -19,6 +20,11 @@ export interface PokemonDefault {
 export interface PokemonGetAllRes {
   id: number;
   name: string;
+}
+
+export interface PokemonGetAllWithTypeRes extends PokemonGetAllRes {
+  type: TypesDefault;
+  isFossil: boolean;
 }
 
 export interface PokemonParams extends PaginationParams {

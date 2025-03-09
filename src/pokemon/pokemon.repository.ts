@@ -7,6 +7,7 @@ import { Pokemon } from './pokemon.entity';
 import {
   GetAllParams,
   PokemonGetAllRes,
+  PokemonGetAllWithTypeRes,
   PokemonParams,
 } from './pokemon.interface';
 import { PaginationResDto } from '../common/pagination/pagination.dto';
@@ -27,6 +28,19 @@ export class PokemonRepository extends Repository<Pokemon> {
     }
 
     return queryBuilder.select(['pokemon.id', 'pokemon.name']).getMany();
+  }
+
+  async findAllWithTypes(): Promise<PokemonGetAllWithTypeRes[]> {
+    const queryBuilder = this.createQueryBuilder('pokemon').select([
+      'pokemon.id',
+      'pokemon.name',
+      'pokemon.isFossil',
+    ]);
+
+    return queryBuilder
+      .leftJoin('pokemon.type', 'type')
+      .addSelect(['type.id', 'type.name'])
+      .getMany();
   }
 
   async findPaginated({
