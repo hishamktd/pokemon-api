@@ -18,5 +18,6 @@ import { PokemonModule } from '../pokemon/pokemon.module';
   ],
   controllers: [CardsController],
   providers: [CardsRepository, CardsService],
+  exports: [TypeOrmModule],
 })
 export class CardsModule {}

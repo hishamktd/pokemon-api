@@ -8,6 +8,7 @@ import { AuthMiddleware } from './auth/auth.middleware';
 import { AuthModule } from './auth/auth.module';
 import { Session } from './auth/session.entity';
 import { User } from './auth/user.entity';
+import { CardsModule } from './cards/cards.module';
 import nonProtectedRoutes from './common/constants/non-protected-routes';
 import { FileUploadModule } from './common/file-upload/file-upload.module';
 import { AppConfig } from './config/config.interface';
@@ -44,6 +45,7 @@ import { PokemonModule } from './pokemon/pokemon.module';
     MastersModule,
     PokemonModule,
     FileUploadModule,
+    CardsModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthMiddleware],

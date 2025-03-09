@@ -20,7 +20,7 @@ export class Pokemon extends AbstractEntity {
   @JoinColumn({ name: 'typeId' })
   type: Types;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'enum', enum: Stage, default: Stage.BASIC })
   stage: Stage;
 
   @Column({ type: 'int', nullable: true })

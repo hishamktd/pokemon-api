@@ -11,7 +11,7 @@ export class Cards extends AbstractEntity {
   @Column({ type: 'text' })
   name: string;
 
-  @Column({ type: 'enum', enum: CardType })
+  @Column({ type: 'enum', enum: CardType, default: CardType.POKEMON })
   cardType: CardType;
 
   @Column({ type: 'text', nullable: true })
@@ -36,7 +36,7 @@ export class Cards extends AbstractEntity {
   @JoinColumn({ name: 'typeId' })
   pokemon: Pokemon;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'int', nullable: true })
   expansionId: number;
 
   @ManyToOne(() => Expansion, (expansion) => expansion.card, {
