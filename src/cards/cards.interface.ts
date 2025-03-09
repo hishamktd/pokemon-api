@@ -8,6 +8,8 @@ export interface DefaultCards {
   typeId: null;
   pokemonId: null;
   pokemon: null;
+  expansionId: null;
+  expansion: null;
   description: string;
   thumbnailUrl: string;
   createdAt: Date;

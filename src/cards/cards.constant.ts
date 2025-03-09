@@ -11,6 +11,8 @@ export const defaultCards: DefaultCards = {
   typeId: null,
   pokemonId: null,
   pokemon: null,
+  expansionId: null,
+  expansion: null,
   description: '',
   thumbnailUrl: '',
   createdAt: new Date(),

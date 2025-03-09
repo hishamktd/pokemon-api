@@ -20,13 +20,26 @@
 #### POKEMON _( from pokemon )_
 
 ```
- [{
+  {
     id: number;
     name: string;
     typeId: number;
     stage: STAGE;
     imageUrl?: string;
-  }]
+  }
+```
+
+#### EXPANSION _( from master expansion )_
+
+```
+{
+  id: number;
+  name: string;
+  totalCards: number;
+  points?: string;
+  imageUrl?: string;
+}
+
 ```
 
 ### CARD_TYPE
@@ -61,6 +74,8 @@ POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
         cardType: CARD_TYPE;
         pokemonId?: number;
         Pokemon?: Pokemon;
+        expansionId: number;
+        expansion: EXPANSION;
         description?: string;
         thumbnailUrl?: string;
         createdAt: string;
@@ -96,6 +111,8 @@ POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
     cardType: CARD_TYPE;
     pokemonId?: number;
     Pokemon?: Pokemon;
+    expansionId: number;
+    expansion: EXPANSION;
     description?: string;
     thumbnailUrl?: string;
     createdAt: string;
@@ -115,6 +132,7 @@ POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
     pokemonId?: number;
     description?: string;
     thumbnailUrl?: string;
+    expansionId: number;
   }
   ```
 
@@ -129,6 +147,7 @@ POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
     pokemonId?: number;
     description?: string;
     thumbnailUrl?: string;
+    expansionId: number;
     createdAt: string;
     updatedAt: string;
   }
@@ -152,6 +171,7 @@ POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
     pokemonId?: number;
     description?: string;
     thumbnailUrl?: string;
+    expansionId: number;
   }
   ```
 
@@ -165,6 +185,7 @@ POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
     cardType: CARD_TYPE;
     pokemonId?: number;
     description?: string;
+    expansionId: number;
     thumbnailUrl?: string;
     createdAt: string;
     updatedAt: string;
@@ -215,6 +236,8 @@ POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
     cardType: CARD_TYPE;
     pokemon: null;
     pokemonId?: null;
+    expansionId: null;
+    expansion: null;
     description?: string;
     thumbnailUrl?: string;
     createdAt: string;

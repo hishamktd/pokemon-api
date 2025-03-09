@@ -2,6 +2,7 @@ import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 import { CardType } from './cards.enum';
 import { AbstractEntity } from '../common/entities/abstract.entity';
+import { Expansion } from '../masters/expansions/expansions.entity';
 import { Types } from '../masters/types/types.entity';
 import { Pokemon } from '../pokemon/pokemon.entity';
 
@@ -34,4 +35,13 @@ export class Cards extends AbstractEntity {
   })
   @JoinColumn({ name: 'typeId' })
   pokemon: Pokemon;
+
+  @Column({ type: 'int' })
+  expansionId: number;
+
+  @ManyToOne(() => Expansion, (expansion) => expansion.card, {
+    onDelete: 'RESTRICT',
+  })
+  @JoinColumn({ name: 'typeId' })
+  expansion: Expansion;
 }

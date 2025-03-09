@@ -39,4 +39,9 @@ export class CardsDto {
   @IsNumber()
   @IsOptional()
   pokemonId?: number;
+
+  @ApiProperty()
+  @IsNumber()
+  @IsNotEmpty()
+  expansionId: number;
 }
