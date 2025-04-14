@@ -44,4 +44,9 @@ export class CardsDto {
   @IsNumber()
   @IsNotEmpty()
   expansionId: number;
+
+  @ApiProperty()
+  @IsNumber()
+  @IsNotEmpty()
+  expansionNumber: number;
 }

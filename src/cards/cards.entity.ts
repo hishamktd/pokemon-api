@@ -44,4 +44,7 @@ export class Cards extends AbstractEntity {
   })
   @JoinColumn({ name: 'expansionId' })
   expansion: Expansion;
+
+  @Column({ type: 'int', nullable: false, default: 0 })
+  expansionPosition: number;
 }

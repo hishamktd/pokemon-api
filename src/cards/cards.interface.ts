@@ -14,6 +14,7 @@ export interface DefaultCards {
   thumbnailUrl: string;
   createdAt: Date;
   updatedAt: Date;
+  expansionNumber: number;
 }
 
 export interface CardGetAllRes {
