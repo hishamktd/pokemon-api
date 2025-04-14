@@ -1,4 +1,5 @@
 import {
+  IsBoolean,
   IsEnum,
   IsNotEmpty,
   IsNumber,
@@ -49,4 +50,9 @@ export class CardsDto {
   @IsNumber()
   @IsNotEmpty()
   expansionPosition: number;
+
+  @ApiProperty()
+  @IsBoolean()
+  @IsNotEmpty()
+  isEx: boolean;
 }

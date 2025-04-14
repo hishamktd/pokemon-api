@@ -18,4 +18,5 @@ export const defaultCards: DefaultCards = {
   createdAt: new Date(),
   updatedAt: new Date(),
   expansionPosition: 0,
+  isEx: false,
 };

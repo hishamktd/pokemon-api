@@ -47,4 +47,7 @@ export class Cards extends AbstractEntity {
 
   @Column({ type: 'int', nullable: false, default: 0 })
   expansionPosition: number;
+
+  @Column({ type: 'boolean', default: false })
+  isEx: boolean;
 }

@@ -15,6 +15,7 @@ export interface DefaultCards {
   createdAt: Date;
   updatedAt: Date;
   expansionPosition: number;
+  isEx: boolean;
 }
 
 export interface CardGetAllRes {
