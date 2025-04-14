@@ -17,5 +17,5 @@ export const defaultCards: DefaultCards = {
   thumbnailUrl: '',
   createdAt: new Date(),
   updatedAt: new Date(),
-  expansionNumber: 0,
+  expansionPosition: 0,
 };

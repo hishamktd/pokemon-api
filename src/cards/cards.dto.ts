@@ -48,5 +48,5 @@ export class CardsDto {
   @ApiProperty()
   @IsNumber()
   @IsNotEmpty()
-  expansionNumber: number;
+  expansionPosition: number;
 }
