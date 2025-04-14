@@ -3,7 +3,7 @@
 ### Endpoint
 
 ```
-/pokemon
+/cards
 ```
 
 #### TYPE _( from master )_
@@ -14,15 +14,38 @@
     name: string;
     iconUrl: string;
     color: string;
-    createdAt: string;
-    updatedAt: string;
   }
 ```
 
-### Stage
+#### POKEMON _( from pokemon )_
 
 ```
-BASIC | STAGE 1 | STAGE 2
+  {
+    id: number;
+    name: string;
+    typeId: number;
+    stage: STAGE;
+    imageUrl?: string;
+  }
+```
+
+#### EXPANSION _( from master expansion )_
+
+```
+{
+  id: number;
+  name: string;
+  totalCards: number;
+  points?: string;
+  imageUrl?: string;
+}
+
+```
+
+### CARD_TYPE
+
+```
+POKEMON | SUPPORTER | ITEM | POKEMON_TOOL | ITEM_FOSSIL
 ```
 
 ### Methods
@@ -48,10 +71,13 @@ BASIC | STAGE 1 | STAGE 2
         name: string;
         type: TYPE;
         typeId: number;
-        stage: STAGE;
-        evolvedFromId?: number;
-        evolvedFrom: Pokemon;
-        imageUrl?: string;
+        cardType: CARD_TYPE;
+        pokemonId?: number;
+        Pokemon?: Pokemon;
+        expansionId: number;
+        expansion: EXPANSION;
+        description?: string;
+        thumbnailUrl?: string;
         createdAt: string;
         updatedAt: string;
      }],
@@ -82,10 +108,13 @@ BASIC | STAGE 1 | STAGE 2
     name: string;
     type: TYPE;
     typeId: number;
-    stage: STAGE;
-    evolvedFromId?: number;
-    evolvedFrom: Pokemon;
-    imageUrl?: string;
+    cardType: CARD_TYPE;
+    pokemonId?: number;
+    Pokemon?: Pokemon;
+    expansionId: number;
+    expansion: EXPANSION;
+    description?: string;
+    thumbnailUrl?: string;
     createdAt: string;
     updatedAt: string;
   }
@@ -99,9 +128,11 @@ BASIC | STAGE 1 | STAGE 2
   {
     name: string;
     typeId: number;
-    imageUrl?: string;
-    stage: STAGE;
-    evolvedFromId?: number;
+    cardType: CARD_TYPE;
+    pokemonId?: number;
+    description?: string;
+    thumbnailUrl?: string;
+    expansionId: number;
   }
   ```
 
@@ -112,9 +143,11 @@ BASIC | STAGE 1 | STAGE 2
     id: number;
     name: string;
     typeId: number;
-    stage: STAGE;
-    evolvedFromId?: number;
-    imageUrl?: string;
+    cardType: CARD_TYPE;
+    pokemonId?: number;
+    description?: string;
+    thumbnailUrl?: string;
+    expansionId: number;
     createdAt: string;
     updatedAt: string;
   }
@@ -134,9 +167,11 @@ BASIC | STAGE 1 | STAGE 2
   {
     name: string;
     typeId: number;
-    imageUrl?: string;
-    stage: STAGE;
-    evolvedFromId?: number;
+    cardType: CARD_TYPE;
+    pokemonId?: number;
+    description?: string;
+    thumbnailUrl?: string;
+    expansionId: number;
   }
   ```
 
@@ -147,9 +182,11 @@ BASIC | STAGE 1 | STAGE 2
     id: number;
     name: string;
     typeId: number;
-    stage: STAGE;
-    evolvedFromId?: number;
-    imageUrl?: string;
+    cardType: CARD_TYPE;
+    pokemonId?: number;
+    description?: string;
+    expansionId: number;
+    thumbnailUrl?: string;
     createdAt: string;
     updatedAt: string;
   }
@@ -168,15 +205,7 @@ BASIC | STAGE 1 | STAGE 2
 #### Endpoint
 
 ```
-/pokemon/all
-```
-
-- Params
-
-```
-{
-  stage: Stage
-}
+/cards/all
 ```
 
 - Response
@@ -199,33 +228,19 @@ BASIC | STAGE 1 | STAGE 2
 - Response
 
   ```
-  [{
+  {
     id: number;
     name: string;
-    typeId: number;
-    stage: STAGE;
-    evolvedFromId?: number;
-    imageUrl?: string;
+    type: null;
+    typeId: null;
+    cardType: CARD_TYPE;
+    pokemon: null;
+    pokemonId?: null;
+    expansionId: null;
+    expansion: null;
+    description?: string;
+    thumbnailUrl?: string;
     createdAt: string;
     updatedAt: string;
-  }]
+  }
   ```
-
-### 8. GET ALL WITH TYPES
-
-#### Endpoint
-
-```
-/pokemon/all/types
-```
-
-- Response
-
-```
-[{
-    id: number;
-    name: string;
-    type: TYPE;
-    isFossil: boolean;
-}]
-```

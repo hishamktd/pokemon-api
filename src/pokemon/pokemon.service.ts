@@ -7,6 +7,7 @@ import {
   GetAllParams,
   PokemonDefault,
   PokemonGetAllRes,
+  PokemonGetAllWithTypeRes,
   PokemonParams,
 } from './pokemon.interface';
 import { PokemonRepository } from './pokemon.repository';
@@ -21,6 +22,14 @@ export class PokemonService {
       return await this.pokemonRepo.findAll(params);
     } catch (error) {
       throw new Error(`Failed to find all Pokemon ${error}`);
+    }
+  }
+
+  async findAllWithTypes(): Promise<PokemonGetAllWithTypeRes[]> {
+    try {
+      return await this.pokemonRepo.findAllWithTypes();
+    } catch (error) {
+      throw new Error(`Failed to find all Pokemon with types ${error}`);
     }
   }
 

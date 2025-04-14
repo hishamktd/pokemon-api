@@ -10,5 +10,6 @@ import { ExpansionsService } from './expansions.service';
   imports: [TypeOrmModule.forFeature([Expansion])],
   providers: [ExpansionsRepository, ExpansionsService],
   controllers: [ExpansionsController],
+  exports: [TypeOrmModule],
 })
 export class ExpansionsModule {}

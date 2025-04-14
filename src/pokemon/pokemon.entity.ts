@@ -1,6 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
 import { Gender, Stage } from './pokemon.enum';
+import { Cards } from '../cards/cards.entity';
 import { AbstractEntity } from '../common/entities/abstract.entity';
 import { Types } from '../masters/types/types.entity';
 
@@ -19,7 +20,7 @@ export class Pokemon extends AbstractEntity {
   @JoinColumn({ name: 'typeId' })
   type: Types;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'enum', enum: Stage, default: Stage.BASIC })
   stage: Stage;
 
   @Column({ type: 'int', nullable: true })
@@ -34,9 +35,12 @@ export class Pokemon extends AbstractEntity {
   @OneToMany(() => Pokemon, (pokemon) => pokemon.evolvedFrom)
   evolutions: Pokemon[];
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'enum', enum: Gender, nullable: true })
   gender: Gender;
 
-  @Column({ type: 'boolean', nullable: true, default: false })
+  @Column({ type: 'boolean', default: false })
   isFossil: boolean;
+
+  @OneToMany(() => Cards, (card) => card.pokemon)
+  card: Cards[];
 }

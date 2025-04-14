@@ -19,6 +19,7 @@ import {
   GetAllParams,
   PokemonDefault,
   PokemonGetAllRes,
+  PokemonGetAllWithTypeRes,
   PokemonParams,
 } from './pokemon.interface';
 import { PokemonService } from './pokemon.service';
@@ -50,6 +51,11 @@ export class PokemonController {
     }
 
     return this.pokemonService.findAll(params);
+  }
+
+  @Get('all/type')
+  async findAllWithTypes(): Promise<PokemonGetAllWithTypeRes[]> {
+    return this.pokemonService.findAllWithTypes();
   }
 
   @Get('default')

@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 
+import { Cards } from '../../cards/cards.entity';
 import { AbstractEntity } from '../../common/entities/abstract.entity';
 import { Pokemon } from '../../pokemon/pokemon.entity';
 
@@ -16,4 +17,7 @@ export class Types extends AbstractEntity {
 
   @OneToMany(() => Pokemon, (pokemon) => pokemon.type)
   pokemon: Pokemon[];
+
+  @OneToMany(() => Cards, (card) => card.type)
+  card: Cards[];
 }
