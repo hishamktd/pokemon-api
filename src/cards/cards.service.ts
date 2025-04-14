@@ -32,7 +32,7 @@ export class CardsService {
 
   async findOne(id: number): Promise<Cards> {
     try {
-      const card = await this.cardsRepo.findOne({ where: { id } });
+      const card = await this.cardsRepo.findById(id);
 
       if (!card) {
         throw new BadRequestException('Card not found');

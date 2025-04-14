@@ -43,4 +43,18 @@ export class CardsRepository extends Repository<Cards> {
 
     return await paginate(queryBuilder, page, size);
   }
+
+  async findById(id: number): Promise<Cards> {
+    const card = await this.createQueryBuilder('card')
+      .where('card.id = :id', { id })
+      .leftJoinAndSelect('card.expansion', 'expansion')
+      .leftJoinAndSelect('card.pokemon', 'pokemon')
+      .leftJoinAndSelect('card.type', 'type')
+      .getOne();
+
+    if (!card) {
+      throw new Error('Card not found');
+    }
+    return card;
+  }
 }
